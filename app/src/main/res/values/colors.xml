@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- SignUp Screen -->
+    <color name="white">#FFFFFF</color>
+    <color name="color_signup_text">#161F3D</color>
+    <color name="color_edt_line">#D8D8D8</color>
+    <color name="color_sign_button">#E9446A</color>
+
+    <!-- Test -->
+    <color name="color_primary">#00000000</color>
+    <color name="color_primary_dark">@android:color/black</color>
+    <color name="color_accent">#4285F4</color>
+    <color name="semi_transparent">#00000000</color>
+
+</resources>

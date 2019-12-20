@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Sample Social Media App</string>
+
+    <!-- SignUp -->
+
+    <string name="text_signup_top_message">Merhaba \n  Başlamak için Kayıt Ol</string>
+    <string name="text_signup_fullname">Ad Soyad</string>
+    <string name="text_signup_email">E-Posta Adresi</string>
+    <string name="text_signup_password">Parola</string>
+    <string name="text_signup_button">Kayıt Ol</string>
+    <string name="text_signup_giris_yap">Giriş yap.</string>
+    <string name="text_signup_zaten_hesabiniz_varmi">Zaten hesabınız var mı?</string>
+
+    <!-- Sign In -->
+
+
+
+</resources>

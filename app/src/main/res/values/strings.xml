@@ -1,18 +1,20 @@
 <resources>
     <string name="app_name">Sample Social Media App</string>
 
-    <!-- SignUp -->
+    <!-- SignUp - SignIn -->
 
-    <string name="text_signup_top_message">Merhaba \n  Başlamak için Kayıt Ol</string>
+    <string name="text_signup_top_message">Merhaba\nBaşlamak için Kayıt Ol</string>
+    <string name="text_forgot_passsword_message">Parola Sıfırlamak için\nE-Posta adresini gir.</string>
+    <string name="text_signin_top_message">Tekrar Merhaba\nHoş geldin</string>
     <string name="text_signup_fullname">Ad Soyad</string>
     <string name="text_signup_email">E-Posta Adresi</string>
     <string name="text_signup_password">Parola</string>
     <string name="text_signup_button">Kayıt Ol</string>
+    <string name="text_forgot_password_password_renew">Parola Gönder</string>
+    <string name="text_signin_button">Giriş Yap</string>
     <string name="text_signup_giris_yap">Giriş yap.</string>
     <string name="text_signup_zaten_hesabiniz_varmi">Zaten hesabınız var mı?</string>
-
-    <!-- Sign In -->
-
+    <string name="text_signin_bottom_text">Yeni bir hesap için </string>
 
 
 </resources>

@@ -20,6 +20,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
 
     }
 }
@@ -46,3 +47,5 @@ versions.espress_core = "3.2.0"
 versions.circle_image_view = "3.0.1"
 versions.material_edittext = "2.1.4"
 versions.material_design = "1.0.0"
+versions.validator = "1.0.1"
+versions.toast_style = "1.4.2"

@@ -54,7 +54,9 @@ dependencies {
     // Retrofit Library
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$versions.retrofit"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofit_coroutines"
+
 
     // Coroutines Library
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
@@ -84,5 +86,11 @@ dependencies {
 
     // CircleImageView Library
     implementation "de.hdodenhof:circleimageview:$versions.circle_image_view"
+
+    // Validator
+    implementation "com.wajahatkarim3.easyvalidation:easyvalidation-core:$versions.validator"
+
+    // Toast Message Style
+    implementation"com.github.GrenderG:Toasty:$versions.toast_style"
 
 }

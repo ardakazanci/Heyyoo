@@ -13,11 +13,12 @@ import com.ardakazanci.samplesocialmediaapp.R
 class SignInFragment : Fragment() {
 
 
-    /*override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
-    }*/
+    }
 
     companion object {
         fun newInstance() = SignInFragment()

@@ -4,12 +4,14 @@ package com.ardakazanci.samplesocialmediaapp.data.model
 
 object DataModel {
 
+    // Kayıt olan kullanıcıdan istenecek bilgiler
     data class SignUpRequestModel(
         val userFullName: String,
         val userEmail: String,
         val userPassword: String
     )
 
-    data class SignUpResponseModel(var messaage: String)
+    // Kayıt başarılıysa dönecek mesaj.
+    data class SignUpResponseModel(var message: String)
 
 }

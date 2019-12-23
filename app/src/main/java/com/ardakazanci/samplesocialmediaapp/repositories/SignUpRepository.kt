@@ -1,10 +1,12 @@
 package com.ardakazanci.samplesocialmediaapp.repositories
 
 
+import androidx.lifecycle.MutableLiveData
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.IApiInterface
 
 class SignUpRepository(private val apiInterface: IApiInterface) : BaseRepository() {
+
 
     suspend fun getSignUpResponse(
         userFullName: String,
@@ -21,8 +23,11 @@ class SignUpRepository(private val apiInterface: IApiInterface) : BaseRepository
                     )
                 ).await()
             },
-            error = "Hata : Kayıt İşlemi"
-        )?.messaage
+            error = "Hata"
+        )?.message
+
+
+
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
+import com.ardakazanci.samplesocialmediaapp.data.network.ApiOutput
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.SignUpRepository
 import com.wajahatkarim3.easyvalidation.core.view_ktx.*
@@ -18,7 +19,7 @@ import kotlin.coroutines.CoroutineContext
 
 class SignUpViewModel : ViewModel() {
 
-    // DataBinding Integration Implement
+    // DataBin
     val userEmail = MutableLiveData<String>()
     val userPassword = MutableLiveData<String>()
     val userFullName = MutableLiveData<String>()
@@ -44,34 +45,57 @@ class SignUpViewModel : ViewModel() {
     fun onSignUpButtonClick() {
         if (!userEmail.value.isNullOrBlank() && !userPassword.value.isNullOrEmpty() && !userFullName.value.isNullOrEmpty()) {
 
-            userEmail.value!!.validEmail {
+            if (!userEmail.value!!.validEmail()) {
                 _fieldEmptyControl.value = "Lütfen geçerli e-posta adresi giriniz."
-            }
-            userPassword.value!!.minLength(5) {
+                signUpSuccess.value = false
+            } else if (!userPassword.value!!.minLength(5)) {
                 _fieldEmptyControl.value = "Parolanız minimum 5 karakter olabilir."
-            }
-            userPassword.value!!.maxLength(15) {
-                _fieldEmptyControl.value = "Parolanız maksimum 15 karakter olabilir."
-            }
-            userFullName.value!!.noSpecialCharacters {
-                _fieldEmptyControl.value = "Adınız özel karakter içermemelidir."
-            }
-            userFullName.value!!.maxLength(20) { error_message ->
-                _fieldEmptyControl.value = "Adınız maksimum 20 karakter olabilir."
-            }
+                signUpSuccess.value = false
 
-            signUpSuccess.value = true
-            scope.launch {
-                signUpRepository.getSignUpResponse(
-                    userFullName.value!!,
-                    userEmail.value!!,
-                    userPassword.value!!
-                )
+            } else if (!userPassword.value!!.maxLength(15)) {
+                _fieldEmptyControl.value = "Parolanız maksimum 15 karakter olabilir."
+                signUpSuccess.value = false
+            } else if (!userFullName.value!!.noSpecialCharacters()) {
+                _fieldEmptyControl.value = "Adınız özel karakter içermemelidir."
+                signUpSuccess.value = false
+            } else if (!userFullName.value!!.maxLength(20)) {
+                _fieldEmptyControl.value = "Adınız maksimum 20 karakter olabilir."
+                signUpSuccess.value = false
+            } else if (userEmail.value!!.length == 0) {
+                _fieldEmptyControl.value = "E-Posta adresinizi giriniz."
+                signUpSuccess.value = false
+            } else if (userPassword.value!!.length == 0) {
+                _fieldEmptyControl.value = "Parolanızı giriniz."
+                signUpSuccess.value = false
+            } else if (userFullName.value!!.length == 0) {
+                _fieldEmptyControl.value = "Adınızı giriniz."
+                signUpSuccess.value = false
+            } else {
+                Log.i("Kayıt Durumu", "Kayıt Başarılı")
+
+                scope.launch {
+
+                    val a = signUpRepository.getSignUpResponse(
+                        userFullName.value!!,
+                        userEmail.value!!,
+                        userPassword.value!!
+                    )
+
+                    if (!a.toString().contains("Kayıt Başarılı")) {
+                        _fieldEmptyControl.postValue("E-Posta adresi kullanımda.")
+                        signUpSuccess.postValue(false)
+                    } else {
+                        signUpSuccess.postValue(true)
+                    }
+
+
+                }
             }
 
         } else {
-            _fieldEmptyControl.value = "Lütfen boş alan bırakmayınız"
+            _fieldEmptyControl.value = "Lütfen tüm alanları doldurunuz."
         }
+
 
     }
 
@@ -79,6 +103,7 @@ class SignUpViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         coroutineContext.cancel()
+
     }
 
 

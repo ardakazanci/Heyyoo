@@ -11,7 +11,8 @@ class SignUpRepository(private val apiInterface: IApiInterface) : BaseRepository
     suspend fun getSignUpResponse(
         userFullName: String,
         userEmail: String,
-        userPassword: String
+        userPassword: String,
+        userImageBase64: String?
     ): String? {
         return safeApiCall(
             call = {
@@ -19,13 +20,13 @@ class SignUpRepository(private val apiInterface: IApiInterface) : BaseRepository
                     DataModel.SignUpRequestModel(
                         userFullName,
                         userEmail,
-                        userPassword
+                        userPassword,
+                        userImageBase64
                     )
                 ).await()
             },
             error = "Hata"
         )?.message
-
 
 
     }

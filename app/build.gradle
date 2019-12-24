@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "androidx.navigation.safeargs"
 
+apply plugin: "kotlin-kapt"
+
 android {
 
     compileSdkVersion 29
@@ -63,10 +65,11 @@ dependencies {
 
     // Room Library
     implementation "androidx.room:room-runtime:$versions.room"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
-    annotationProcessor "androidx.room:room-compiler:$versions.room"
+    implementation "androidx.legacy:legacy-support-v4:$versions.legacy_support"
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata:$versions.lifecycle"
+    kapt "androidx.room:room-compiler:$versions.room"
 
     // Navigation Library
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
@@ -92,5 +95,11 @@ dependencies {
 
     // Toast Message Style
     implementation"com.github.GrenderG:Toasty:$versions.toast_style"
+
+    // Permission Dexter
+    implementation "com.karumi:dexter:$versions.dexter"
+
+    // ImagePicker
+    implementation "com.github.qingmei2:rximagepicker:$versions.image_picker"
 
 }

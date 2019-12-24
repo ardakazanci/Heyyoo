@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="signUpViewModel"
             type="com.ardakazanci.samplesocialmediaapp.ui.onboarding.signup.SignUpViewModel" />
@@ -20,8 +19,11 @@
             android:id="@+id/img_signup_bg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:scaleType="fitXY"
             android:src="@drawable/signup_bg"
+
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,6 +49,7 @@
             android:layout_width="250dp"
             android:layout_height="120dp"
             android:layout_marginTop="48dp"
+            app:imageUrl="@{signUpViewModel.fieldUserImageUri}"
             android:transitionName="transation_signin_signup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

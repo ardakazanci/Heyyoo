@@ -1,134 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.onboarding.signin.SignInFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_signin_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@drawable/signup_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_top_photo_select"
-        android:layout_width="300dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="140dp"
-        android:transitionName="transation_signin_signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_signin_bg"
-        app:srcCompat="@drawable/sign_in_top_logo" />
+        <variable
+            name="signInViewModel"
+            type="com.ardakazanci.samplesocialmediaapp.ui.onboarding.signin.SignInViewModel" />
+    </data>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_top_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/monserrat_medium"
-        android:text="@string/text_signin_top_message"
-        android:textAlignment="center"
-        android:textColor="@color/color_opacity_black"
-        android:textSize="@dimen/dimen_signup_top_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_top_photo_select" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_signin_email_label"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_top_text">
+        android:layout_height="match_parent"
+        tools:context=".ui.onboarding.signin.SignInFragment">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edt_signin_email"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_signin_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/signup_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_top_photo_select"
+            android:layout_width="300dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="140dp"
+            android:transitionName="transation_signin_signup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_signin_bg"
+            app:srcCompat="@drawable/sign_in_top_logo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/monserrat_medium"
+            android:text="@string/text_signin_top_message"
+            android:textAlignment="center"
+            android:textColor="@color/color_opacity_black"
+            android:textSize="@dimen/dimen_signup_top_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_top_photo_select" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_signin_email_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_edt_line"
-            android:fontFamily="@font/monserat_regular"
-            android:hint="@string/text_signup_email"
-            android:inputType="textEmailAddress"
-            android:paddingBottom="20dp"
-            android:textColor="@color/color_signup_text"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_top_text">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_signin_password_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_signin_email_label">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_signin_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_edt_line"
+                android:fontFamily="@font/monserat_regular"
+                android:hint="@string/text_signup_email"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="20dp"
+                android:text="@={signInViewModel.userEmailField}"
+                android:textColor="@color/color_signup_text"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edt_signin_password"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_signin_password_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_edt_line"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_signin_email_label">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_signin_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_edt_line"
+                android:fontFamily="@font/monserat_regular"
+                android:hint="@string/text_signup_password"
+                android:inputType="textPassword"
+                android:text="@={signInViewModel.userPasswordField}"
+                android:paddingBottom="20dp"
+                android:textColor="@color/color_signup_text"
+                android:textSize="14sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_signin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/shape_oval"
+            android:fontFamily="@font/monserrat_medium"
+            android:padding="20dp"
+            android:onClick="@{()-> signInViewModel.clickSignInButton()}"
+            android:text="@string/text_signin_button"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_signin_password_label" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/monserat_regular"
-            android:hint="@string/text_signup_password"
-            android:inputType="textPassword"
-            android:paddingBottom="20dp"
-            android:textColor="@color/color_signup_text"
-            android:textSize="14sp" />
+            android:text="@string/text_signin_forgot_password_text"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_signup_text_link"
+            app:layout_constraintEnd_toStartOf="@+id/tv_signup_text_link"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/shape_oval"
-        android:fontFamily="@font/monserrat_medium"
-        android:padding="20dp"
-        android:text="@string/text_signin_button"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_signin_password_label" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_info_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/monserat_regular"
-        android:text="@string/text_signin_bottom_text"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_signin_link_text"
-        app:layout_constraintEnd_toStartOf="@+id/tv_signin_link_text"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_signin_link_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/monserat_regular"
-        android:text="@string/text_signup_button"
-        android:textColor="@color/color_sign_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_info_text"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_signup_text_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/monserat_regular"
+            android:text="@string/text_signin_forgot_password_text_link"
+            android:textColor="@color/color_sign_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_info_text"
+            app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

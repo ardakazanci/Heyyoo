@@ -12,11 +12,7 @@ interface IApiInterface {
 
     @POST("/user/signUp")
     fun requestSignUp(@Body bodyData: DataModel.SignUpRequestModel): Deferred<Response<DataModel.SignUpResponseModel>>
-    /*@POST("user/signUp")
-    fun requestSignUp(
-        @Part("userFullName") userFullName: RequestBody,
-        @Part("userEmail") userEmail: RequestBody,
-        @Part("userPassword") userPassword: RequestBody,
-        @Part("userImage") userImage: RequestBody
-    )*/
+
+    @POST("/user/login")
+    fun requestSignIn(@Body bodyData: DataModel.SignInRequestModel): Deferred<Response<DataModel.SignInResponseModel>>
 }

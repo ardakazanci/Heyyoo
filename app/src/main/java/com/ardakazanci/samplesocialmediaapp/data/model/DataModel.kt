@@ -14,7 +14,14 @@ object DataModel {
         val userImageBase64: String?
     )
 
+    data class SignInRequestModel(
+        val userEmail: String,
+        val userPassword: String
+    )
+
     // Kayıt başarılıysa dönecek mesaj.
     data class SignUpResponseModel(var message: String, var error: String?, var success: String)
 
+
+    data class SignInResponseModel(var token: String?, var message: String)
 }

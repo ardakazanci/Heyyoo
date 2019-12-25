@@ -8,6 +8,9 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
+import androidx.core.content.ContextCompat
+import com.ardakazanci.samplesocialmediaapp.R
+import es.dmoral.toasty.Toasty
 import java.io.ByteArrayOutputStream
 
 
@@ -40,6 +43,22 @@ object UtilsFunctions {
             return getEncoded64ImageStringFromBitmap(bitmap)
         }
     }
+
+    fun Context.toast(message: CharSequence) {
+
+        Toasty.custom(
+            this,
+            message,
+            ContextCompat.getDrawable(this, R.drawable.ic_info),
+            ContextCompat.getColor(this, R.color.color_sign_button),
+            ContextCompat.getColor(this, android.R.color.white),
+            Toasty.LENGTH_SHORT,
+            true,
+            true
+        ).show();
+
+    }
+
 
 }
 

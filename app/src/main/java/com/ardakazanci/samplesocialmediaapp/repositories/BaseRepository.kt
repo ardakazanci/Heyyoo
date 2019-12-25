@@ -9,7 +9,6 @@ import java.io.IOException
 // Api Çağrılarının çalıştırılması için repository kullanılacak
 open class BaseRepository {
 
-
     suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>, error: String): T? {
         val result = apiOutput(call, error)
         var output: T? = null
@@ -22,9 +21,7 @@ open class BaseRepository {
 
             }
         }
-
         return output
-
     }
 
     private suspend fun <T : Any> apiOutput(

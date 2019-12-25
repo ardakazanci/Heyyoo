@@ -31,8 +31,11 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 
-    dataBinding{
+    dataBinding {
         enabled true
     }
 }
@@ -69,6 +72,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
     implementation "androidx.lifecycle:lifecycle-livedata:$versions.lifecycle"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
     kapt "androidx.room:room-compiler:$versions.room"
 
     // Navigation Library
@@ -94,12 +104,16 @@ dependencies {
     implementation "com.wajahatkarim3.easyvalidation:easyvalidation-core:$versions.validator"
 
     // Toast Message Style
-    implementation"com.github.GrenderG:Toasty:$versions.toast_style"
+    implementation "com.github.GrenderG:Toasty:$versions.toast_style"
 
     // Permission Dexter
     implementation "com.karumi:dexter:$versions.dexter"
 
     // ImagePicker
     implementation "com.github.qingmei2:rximagepicker:$versions.image_picker"
+
+    // Secure Shared Preferece
+    implementation "com.scottyab:secure-preferences-lib:$versions.secure_preference"
+
 
 }

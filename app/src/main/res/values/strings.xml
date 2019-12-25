@@ -16,5 +16,12 @@
     <string name="text_signup_zaten_hesabiniz_varmi">Zaten hesabınız var mı?</string>
     <string name="text_signin_bottom_text">Yeni bir hesap için </string>
 
+    <string name="text_signin_forgot_password_text">Parola Hatırlatma</string>
+    <string name="text_signin_forgot_password_text_link">için</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
 
 </resources>

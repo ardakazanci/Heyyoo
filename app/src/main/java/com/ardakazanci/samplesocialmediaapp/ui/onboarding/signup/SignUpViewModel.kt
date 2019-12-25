@@ -2,22 +2,14 @@ package com.ardakazanci.samplesocialmediaapp.ui.onboarding.signup
 
 
 import android.app.Application
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
-import android.provider.MediaStore
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.SignUpRepository
 import com.ardakazanci.samplesocialmediaapp.utils.SingleLiveEvent
 import com.ardakazanci.samplesocialmediaapp.utils.UtilsFunctions
-
 import com.wajahatkarim3.easyvalidation.core.view_ktx.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -113,6 +105,8 @@ class SignUpViewModel(private val app: Application) : AndroidViewModel(app) {
         super.onCleared()
         coroutineContext.cancel()
     }
+
+    fun cancelCoroutines() = coroutineContext.cancel()
 
 
 }

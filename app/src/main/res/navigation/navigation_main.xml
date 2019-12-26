@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.dashboard.DashboardFragment"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
@@ -22,4 +22,14 @@
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_messages"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessagesFragment"
+        android:label="@string/title_message"
+        tools:layout="@layout/messages_fragment" />
+    <fragment
+        android:id="@+id/navigation_content"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddFragment"
+        android:label="@string/title_content_share"
+        tools:layout="@layout/content_add_fragment" />
 </navigation>

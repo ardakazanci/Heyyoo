@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.main.SocialMainActivity"></activity>
+        <activity
+            android:name=".ui.main.SocialMainActivity"
+            android:theme="@style/SocialMainTheme"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/OnBoardingTheme">

@@ -1,4 +1,4 @@
-package com.ardakazanci.samplesocialmediaapp.ui.main.ui.dashboard
+package com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

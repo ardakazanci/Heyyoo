@@ -21,6 +21,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
 
     }
 }
@@ -53,3 +54,6 @@ versions.dexter = "6.0.1"
 versions.legacy_support = "1.0.0"
 versions.image_picker = "2.2.0"
 versions.secure_preference = "0.1.7"
+versions.circle_image_view = "3.0.1"
+
+

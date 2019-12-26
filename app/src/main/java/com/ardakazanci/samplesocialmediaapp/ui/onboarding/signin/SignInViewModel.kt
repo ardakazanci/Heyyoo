@@ -9,8 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.SignInRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
-import com.ardakazanci.samplesocialmediaapp.utils.SingleLiveEvent
-import com.ardakazanci.samplesocialmediaapp.utils.extensions.toast
+import com.ardakazanci.samplesocialmediaapp.utils.toast
 import com.securepreferences.SecurePreferences
 import com.wajahatkarim3.easyvalidation.core.view_ktx.validEmail
 import kotlinx.coroutines.*
@@ -76,10 +75,8 @@ class SignInViewModel(private val app: Application) : AndroidViewModel(app) {
                     if (loginProcess == null) {
                         _loginSuccessControl.postValue(false)
                     } else {
-
                         val token = loginProcess.toString()
                         editor.putString(Constants.PREF_USER_TOKEN_VALUE, token).apply()
-
                         _loginSuccessControl.postValue(true)
 
                     }

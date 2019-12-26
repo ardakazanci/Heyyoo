@@ -19,9 +19,12 @@
     <string name="text_signin_forgot_password_text">Parola Hatırlatma</string>
     <string name="text_signin_forgot_password_text_link">için</string>
 
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="title_home">AnaMenü</string>
+    <string name="title_dashboard">Profil</string>
+    <string name="title_notifications">Bildirim</string>
+    <string name="title_message">Mesaj</string>
+    <string name="title_content_share">Paylaş</string>
 
 
 </resources>

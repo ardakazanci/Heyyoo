@@ -9,7 +9,8 @@ import androidx.lifecycle.MutableLiveData
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.SignUpRepository
 import com.ardakazanci.samplesocialmediaapp.utils.SingleLiveEvent
-import com.ardakazanci.samplesocialmediaapp.utils.UtilsFunctions
+import com.ardakazanci.samplesocialmediaapp.utils.uriToBitmapFunction
+
 import com.wajahatkarim3.easyvalidation.core.view_ktx.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -85,7 +86,10 @@ class SignUpViewModel(private val app: Application) : AndroidViewModel(app) {
                         userFullName.value!!, // String
                         userEmail.value!!,// String
                         userPassword.value!!, // String
-                        UtilsFunctions.uriToBitmapFunction(fieldUserImageUri.value, app)
+                        uriToBitmapFunction(
+                            fieldUserImageUri.value,
+                            app
+                        )
                     )
                     if (!a.toString().contains("Kayıt Başarılı")) {
                         _fieldEmptyControl.postValue("E-Posta adresi kullanımda.")

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#E9446A</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
@@ -16,5 +16,9 @@
     <color name="color_accent">#4285F4</color>
     <color name="semi_transparent">#00000000</color>
     <color name="color_opacity_black">#6F7487</color>
+
+    <color name="start">#E9446A</color>
+    <color name="center">#E9446A</color>
+    <color name="stop">#D81B60</color>
 
 </resources>

@@ -1,26 +1,28 @@
 package com.ardakazanci.samplesocialmediaapp
 
-import android.Manifest
+
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.*
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.single.PermissionListener
-import com.karumi.dexter.Dexter
 import android.util.Log
-import com.karumi.dexter.listener.PermissionRequest
-
+import android.view.*
+import com.ardakazanci.samplesocialmediaapp.ui.main.SocialMainActivity
+import com.ardakazanci.samplesocialmediaapp.utils.Constants
+import com.securepreferences.SecurePreferences
 
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Auto Login
+        prefsUserTokenControl()
 
         // Transparan StatusBar ve BottomBar
         this.window.apply {
@@ -32,5 +34,40 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun prefsUserTokenControl() {
+
+        val preferences: SharedPreferences =
+            SecurePreferences(
+                this.applicationContext,
+                Constants.PREF_USER_TOKEN_VALUE,
+                Constants.PREF_USER_TOKEN
+            )
+        val userLoginTokenValue: String? =
+            preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
+
+
+        if (!userLoginTokenValue.isNullOrBlank()) {
+            Log.e("TokenKontrol", userLoginTokenValue.toString())
+            val intent = Intent(
+                this.applicationContext,
+                SocialMainActivity::class.java
+            ).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
+        } else {
+            Log.e("TokenKontrol", "Giriş yapılmamış")
+        }
+
+
+    }
+
 
 }
+
+
+
+
+
+
+
+

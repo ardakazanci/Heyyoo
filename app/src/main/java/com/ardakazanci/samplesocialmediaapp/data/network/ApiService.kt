@@ -1,7 +1,9 @@
 package com.ardakazanci.samplesocialmediaapp.data.network
 
+import android.content.SharedPreferences
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.securepreferences.SecurePreferences
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

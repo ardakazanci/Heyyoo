@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.ardakazanci.samplesocialmediaapp.R
+import com.ardakazanci.samplesocialmediaapp.databinding.FragmentDashboardBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.adapter.ViewPagerProfileAdapter
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.liked.ProfileLikedFragment
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.shared.ProfileSharedFragment
@@ -20,11 +21,10 @@ import com.google.android.material.tabs.TabLayout
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var viewModel: DashboardViewModel
     private lateinit var tabLayoutProfile: TabLayout
     private lateinit var viewPagerProfile: ViewPager
     private lateinit var pagerAdapter: ViewPagerProfileAdapter
-
 
 
     override fun onCreateView(
@@ -33,17 +33,27 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        // DataBinding Yapılacak
 
+        val binding = DataBindingUtil.inflate<FragmentDashboardBinding>(
+            inflater,
+            R.layout.fragment_dashboard,
+            container,
+            false
+        )
+        binding.lifecycleOwner = this
 
-        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        viewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
 
-
-        tabLayoutProfile = root.findViewById<TabLayout>(R.id.tab_layout_profile)
-        viewPagerProfile = root.findViewById<ViewPager>(R.id.viewPager_profile)
+        //binding.textView.text = dashboardViewModel.userFullName.value.
+        tabLayoutProfile = binding.tabLayoutProfile
+        viewPagerProfile = binding.viewPagerProfile
         fragmentAttachToTabLayout()
-        return root
+
+        binding.dashboardViewModel = viewModel
+
+
+
+        return binding.root
     }
 
     private fun fragmentAttachToTabLayout() {

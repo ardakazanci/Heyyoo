@@ -13,7 +13,6 @@ class SignInRepository(private val apiInterface: IApiInterface) : BaseRepository
     ): String? {
         return safeApiCall(
             call = {
-                Log.e("Repository", userEmail + " " + userPassword)
                 apiInterface.requestSignIn(
                     DataModel.SignInRequestModel(
                         userEmail,

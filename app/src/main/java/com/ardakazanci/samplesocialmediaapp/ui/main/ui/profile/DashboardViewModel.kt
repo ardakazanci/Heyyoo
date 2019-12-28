@@ -1,15 +1,39 @@
 package com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile
 
+import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.DashboardInfoRepository
+import com.ardakazanci.samplesocialmediaapp.utils.Constants
+import com.ardakazanci.samplesocialmediaapp.utils.bitmapToDrawable
+import com.ardakazanci.samplesocialmediaapp.utils.getDecodeBase64toBitmap
+import com.ardakazanci.samplesocialmediaapp.utils.getEncoded64ImageStringFromBitmap
+import com.securepreferences.SecurePreferences
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel(private val app: Application) : AndroidViewModel(app) {
+
+
+    private var mContext: Context = app.applicationContext
+    val preferences: SharedPreferences =
+        SecurePreferences(
+            mContext,
+            Constants.PREF_USER_TOKEN_VALUE,
+            Constants.PREF_USER_TOKEN
+        )
+    val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
+    val userId: String? = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
+
 
     private val dashboardInfoRepository: DashboardInfoRepository =
         DashboardInfoRepository(ApiService.mainApi)
@@ -19,6 +43,7 @@ class DashboardViewModel : ViewModel() {
     val userFollowedCount = MutableLiveData<Long>()
     val userSharedCount = MutableLiveData<Long>()
     val userFullName = MutableLiveData<String>()
+    val userProfileImage = MutableLiveData<Bitmap>()
 
 
     // <<< COROUTINES BAŞLANGIÇ >>>
@@ -31,10 +56,9 @@ class DashboardViewModel : ViewModel() {
 
     init {
         scope.launch {
-
             val a = dashboardInfoRepository.getUserInfoResponse(
-                "5e063d198b9049075441ded8",
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRW1haWwiOiJ0ZXN0MTFAdGVzdDExLmNvbSIsInVzZXJJZCI6IjVlMDYzZDE5OGI5MDQ5MDc1NDQxZGVkOCIsImlhdCI6MTU3NzQ3MTYwMywiZXhwIjoxNTc3NDc1MjAzfQ.lK6RjwHFYcIbyT_InWANi0fiOGaRUAQG0ML38MoJdOA"
+                userId!!,
+                "Bearer " + userToken!!
             )
 
             try {
@@ -43,8 +67,10 @@ class DashboardViewModel : ViewModel() {
                         a.userFullName,
                         a.userFollowerCount,
                         a.userFollowedCount,
-                        a.userSharedCount
+                        a.userSharedCount,
+                        a.userImageBase64
                     )
+
                 }
             } catch (e: Exception) {
 
@@ -56,13 +82,19 @@ class DashboardViewModel : ViewModel() {
     }
 
 
-    fun infoDataWith(name: String, followerCount: Long, followedCount: Long, sharedCount: Long) {
+    fun infoDataWith(
+        name: String,
+        followerCount: Long,
+        followedCount: Long,
+        sharedCount: Long,
+        image: String
+    ) {
 
         userFullName.value = name
         userFollowerCount.value = followerCount
         userFollowedCount.value = followedCount
         userSharedCount.value = sharedCount
-
+        userProfileImage.value = getDecodeBase64toBitmap(image)
 
     }
 

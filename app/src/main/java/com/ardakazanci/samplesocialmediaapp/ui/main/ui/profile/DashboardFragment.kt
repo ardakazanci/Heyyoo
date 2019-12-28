@@ -1,5 +1,8 @@
 package com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile
 
+import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +11,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
@@ -16,10 +20,13 @@ import com.ardakazanci.samplesocialmediaapp.databinding.FragmentDashboardBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.adapter.ViewPagerProfileAdapter
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.liked.ProfileLikedFragment
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.shared.ProfileSharedFragment
+import com.ardakazanci.samplesocialmediaapp.utils.Constants
 import com.google.android.material.tabs.TabLayout
+import com.securepreferences.SecurePreferences
 
 
 class DashboardFragment : Fragment() {
+
 
     private lateinit var viewModel: DashboardViewModel
     private lateinit var tabLayoutProfile: TabLayout
@@ -43,6 +50,13 @@ class DashboardFragment : Fragment() {
         binding.lifecycleOwner = this
 
         viewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+
+        /*
+               binding.circleImageView
+         */
+
+
+
 
         //binding.textView.text = dashboardViewModel.userFullName.value.
         tabLayoutProfile = binding.tabLayoutProfile

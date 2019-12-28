@@ -38,11 +38,8 @@ object DataModel {
 
     // <<< PROFIL BİLGİLERİ SON >>>
 
-
-
     // Kayıt başarılıysa dönecek mesaj.
     data class SignUpResponseModel(var message: String, var error: String?, var success: String)
-
 
     data class SignInResponseModel(var token: String?, var message: String)
 }

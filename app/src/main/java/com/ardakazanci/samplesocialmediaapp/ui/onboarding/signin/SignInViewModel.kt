@@ -75,8 +75,14 @@ class SignInViewModel(private val app: Application) : AndroidViewModel(app) {
                     if (loginProcess == null) {
                         _loginSuccessControl.postValue(false)
                     } else {
-                        val token = loginProcess.toString()
-                        editor.putString(Constants.PREF_USER_TOKEN_VALUE, token).apply()
+
+
+                        val token = loginProcess.split("&")
+                        editor.putString(Constants.PREF_USER_ID_VALUE, token[0])
+                        editor.putString(Constants.PREF_USER_TOKEN_VALUE, token[1])
+                        editor.apply()
+                        Log.e("User Token", token[0])
+                        Log.e("User Token", token[1])
                         _loginSuccessControl.postValue(true)
 
                     }

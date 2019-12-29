@@ -15,7 +15,22 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_followedListFragment"
+            app:destination="@id/followedListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_followerListFragment"
+            app:destination="@id/followerListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -32,4 +47,14 @@
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddFragment"
         android:label="@string/title_content_share"
         tools:layout="@layout/content_add_fragment" />
+    <fragment
+        android:id="@+id/followerListFragment"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.FollowerListFragment"
+        android:label="follower_list_fragment"
+        tools:layout="@layout/follower_list_fragment" />
+    <fragment
+        android:id="@+id/followedListFragment"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.FollowedListFragment"
+        android:label="followed_list_fragment"
+        tools:layout="@layout/followed_list_fragment" />
 </navigation>

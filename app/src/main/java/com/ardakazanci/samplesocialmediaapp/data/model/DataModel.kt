@@ -42,4 +42,20 @@ object DataModel {
     data class SignUpResponseModel(var message: String, var error: String?, var success: String)
 
     data class SignInResponseModel(var token: String?, var message: String)
+
+
+    // FOLLOWER LİSTELEME VERİ MODELİ
+    // RESPONSE İÇİN
+    data class FollowerListResponse(
+        var userInfo: List<FollowerListModel>
+    )
+
+    data class FollowerListModel(
+        var _id: String,
+        var userFullName: String,
+        var userImageBase64: String
+    )
+
+
+
 }

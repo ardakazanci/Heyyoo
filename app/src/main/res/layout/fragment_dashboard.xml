@@ -53,9 +53,9 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/appBarLayout_profile"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/tvFollowedList"
+            app:layout_constraintStart_toStartOf="@+id/tvFollowedList"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowedList"
             tools:text="Takip Edilen" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -68,24 +68,26 @@
             android:textAlignment="center"
             android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/tvFollowerList"
+            app:layout_constraintStart_toStartOf="@+id/tvFollowerList"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowerList"
             tools:text="Takipçi" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:text="@{String.valueOf(dashboardViewModel.userFollowedCount)}"
-            android:id="@+id/textView6"
+            android:background="?selectableItemBackgroundBorderless"
+            android:id="@+id/tvFollowedList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/monserat_regular"
+            android:padding="8dp"
+            android:text="@{String.valueOf(dashboardViewModel.userFollowedCount)}"
             android:textAlignment="center"
             android:textColor="@color/color_signup_text"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/tvFollowerList"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:text="21" />
 
@@ -107,32 +109,35 @@
             tools:text="Paylaşım" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textView5"
-            android:text="@{String.valueOf(dashboardViewModel.userFollowerCount)}"
+            android:id="@+id/tvFollowerList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/monserat_regular"
+            android:padding="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@{String.valueOf(dashboardViewModel.userFollowerCount)}"
             android:textAlignment="center"
             android:textColor="@color/color_signup_text"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/tvFollowedList"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:text="21" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:text="@{String.valueOf(dashboardViewModel.userSharedCount)}"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/monserat_regular"
+            android:padding="8dp"
+            android:text="@{String.valueOf(dashboardViewModel.userSharedCount)}"
             android:textAlignment="center"
             android:textColor="@color/color_signup_text"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintEnd_toStartOf="@+id/tvFollowerList"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"

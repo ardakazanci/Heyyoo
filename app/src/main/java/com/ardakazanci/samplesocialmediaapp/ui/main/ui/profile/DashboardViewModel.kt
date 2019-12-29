@@ -3,20 +3,19 @@ package com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Resources
+
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
-import android.util.Log
+
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
+
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.DashboardInfoRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
-import com.ardakazanci.samplesocialmediaapp.utils.bitmapToDrawable
+
 import com.ardakazanci.samplesocialmediaapp.utils.getDecodeBase64toBitmap
-import com.ardakazanci.samplesocialmediaapp.utils.getEncoded64ImageStringFromBitmap
+
 import com.securepreferences.SecurePreferences
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -31,6 +30,7 @@ class DashboardViewModel(private val app: Application) : AndroidViewModel(app) {
             Constants.PREF_USER_TOKEN_VALUE,
             Constants.PREF_USER_TOKEN
         )
+
     val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
     val userId: String? = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
 

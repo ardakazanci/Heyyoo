@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 import android.graphics.Bitmap
+import android.util.Log
 
 import androidx.lifecycle.AndroidViewModel
 
@@ -71,6 +72,7 @@ class DashboardViewModel(private val app: Application) : AndroidViewModel(app) {
                         a.userImageBase64
                     )
 
+
                 }
             } catch (e: Exception) {
 
@@ -89,6 +91,7 @@ class DashboardViewModel(private val app: Application) : AndroidViewModel(app) {
         sharedCount: Long,
         image: String
     ) {
+
 
         userFullName.value = name
         userFollowerCount.value = followerCount

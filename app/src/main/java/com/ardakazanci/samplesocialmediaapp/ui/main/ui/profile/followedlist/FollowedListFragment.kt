@@ -47,6 +47,8 @@ class FollowedListFragment : Fragment() {
                             followedItemId
                         )
                     )
+
+                viewModel.cancelCoroutines()
             }
 
 

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 
 import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.databinding.OtherprofileFragmentBinding
@@ -36,9 +37,23 @@ class OtherProfileFragment : Fragment() {
 
         arguments!!.let { arguments ->
             val args = OtherProfileFragmentArgs.fromBundle(arguments)
-            Toast.makeText(context, "Kullanıcı ID->${args.userid}", Toast.LENGTH_LONG).show()
+
+            viewModel._otherUserId.value = args.userid
 
         }
+
+        viewModel.otherUserIsFollow.observe(this, Observer {
+
+
+            if (it) {
+                binding.btnFollow.visibility = View.INVISIBLE
+                binding.btnUnfollow.visibility = View.VISIBLE
+            } else {
+                binding.btnFollow.visibility = View.VISIBLE
+                binding.btnUnfollow.visibility = View.INVISIBLE
+            }
+
+        })
 
 
 

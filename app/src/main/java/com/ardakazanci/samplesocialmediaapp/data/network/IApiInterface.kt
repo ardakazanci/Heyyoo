@@ -31,5 +31,19 @@ interface IApiInterface {
         @Path("userid") userid: String
     ): Deferred<Response<DataModel.FollowedListResponse>>
 
+
+    // UnFollow işlemi gerçekleştirilecek
+    // unfollow a gönderilen 2 adet ID vardır , param olarak giriş yapan kullanıcı
+    // body olarak takip edilen kullanıcı
+
+    @HTTP(method = "DELETE", path = "/followoperation/unfollow/{userid}", hasBody = true)
+    fun requesUnFollow(
+        @Path("userid") userid: String,
+        @Body bodyData: DataModel.UnFollowRequestModel
+    ): Deferred<Response<DataModel.UnFollowResponseModel>>
+
+
+    // Follow işlemi gerçekleştirilecek
+
 }
 

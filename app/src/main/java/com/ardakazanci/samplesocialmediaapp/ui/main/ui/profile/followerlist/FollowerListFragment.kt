@@ -34,15 +34,12 @@ class FollowerListFragment : Fragment() {
             false
         )
 
-
-
         viewModel = ViewModelProviders.of(this).get(FollowerListViewModel::class.java)
 
         binding.followerListViewModel = viewModel
 
         val adapter = FollowerListAdapter(FollowerListClickListener { followerItemId ->
 
-            Toast.makeText(context, "${followerItemId}", Toast.LENGTH_LONG).show()
             view!!.let { view: View ->
                 view.findNavController()
                     .navigate(
@@ -50,6 +47,8 @@ class FollowerListFragment : Fragment() {
                             followerItemId
                         )
                     )
+
+                viewModel.cancelCoroutines()
             }
 
         })

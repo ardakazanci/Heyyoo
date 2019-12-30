@@ -69,4 +69,16 @@ object DataModel {
     )
 
 
+    // UNFOLLOW İÇİN
+    data class UnFollowRequestModel(
+        val otheruserid: String
+
+    )
+
+    data class UnFollowResponseModel(
+        val success: Boolean,
+        val message: String
+    )
+
+
 }

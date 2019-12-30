@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.FollowerListRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
@@ -14,6 +16,10 @@ import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
 class FollowerListViewModel(private var app: Application) : AndroidViewModel(app) {
+
+
+    var followerListInfo = MutableLiveData<List<DataModel.FollowerListModel>>()
+
 
 
     private val mContext: Context = app.applicationContext
@@ -49,9 +55,7 @@ class FollowerListViewModel(private var app: Application) : AndroidViewModel(app
             try {
                 a!!.let {
 
-                    it.forEach {
-                        Log.i(LOG_TAG, "İlgili değer $it")
-                    }
+                    followerListInfo.postValue(a)
 
                 }
             } catch (e: Exception) {

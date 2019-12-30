@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clicklistener"
+            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.adapter.FollowerListClickListener" />
+
+        <variable
+            name="follower"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.FollowerListModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> clicklistener.onClick(follower)}"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            app:imageUrlNoCircle="@{follower.userImageBase64}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/arda" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/monserrat_semibold"
+            android:maxLines="1"
+            android:text="@{follower.userFullName}"
+            app:layout_constraintBottom_toBottomOf="@+id/item_profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_profile_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sample User" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

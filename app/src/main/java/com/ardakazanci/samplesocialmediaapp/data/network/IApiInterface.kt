@@ -26,5 +26,10 @@ interface IApiInterface {
         @Path("userid") userid: String
     ): Deferred<Response<DataModel.FollowerListResponse>>
 
+    @GET("/followoperation/followedlist/{userid}")
+    fun requestFollowedListInfo(
+        @Path("userid") userid: String
+    ): Deferred<Response<DataModel.FollowedListResponse>>
+
 }
 

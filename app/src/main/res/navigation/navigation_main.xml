@@ -51,10 +51,35 @@
         android:id="@+id/followerListFragment"
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.FollowerListFragment"
         android:label="follower_list_fragment"
-        tools:layout="@layout/follower_list_fragment" />
+        tools:layout="@layout/follower_list_fragment">
+        <action
+            android:id="@+id/action_followerListFragment_to_otherProfileFragment"
+            app:destination="@id/otherProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/followedListFragment"
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.FollowedListFragment"
         android:label="followed_list_fragment"
-        tools:layout="@layout/followed_list_fragment" />
+        tools:layout="@layout/followed_list_fragment">
+        <action
+            android:id="@+id/action_followedListFragment_to_otherProfileFragment"
+            app:destination="@id/otherProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherProfileFragment"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.otherprofile.OtherProfileFragment"
+        android:label="otherprofile_fragment"
+        tools:layout="@layout/otherprofile_fragment">
+        <argument
+            android:name="userid"
+            app:argType="string" />
+    </fragment>
 </navigation>

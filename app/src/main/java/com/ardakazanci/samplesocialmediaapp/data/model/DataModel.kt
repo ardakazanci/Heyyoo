@@ -56,6 +56,17 @@ object DataModel {
         var userImageBase64: String
     )
 
+    // FOLLOWED LİSTELEME VERİ MODELİ
+    // RESPONSE İÇİN
+    data class FollowedListResponse(
+        var userInfo: List<FollowedListModel>
+    )
+
+    data class FollowedListModel(
+        var _id: String,
+        var userFullName: String,
+        var userImageBase64: String
+    )
 
 
 }

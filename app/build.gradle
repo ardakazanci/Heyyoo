@@ -8,6 +8,9 @@ apply plugin: "androidx.navigation.safeargs"
 
 apply plugin: "kotlin-kapt"
 
+
+
+
 android {
 
     compileSdkVersion 29
@@ -89,7 +92,7 @@ dependencies {
 
     // Glide Library
     implementation "com.github.bumptech.glide:glide:$versions.glide"
-    annotationProcessor "com.github.bumptech.glide:compiler:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
 
     // LiveData - ViewModel Library
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"

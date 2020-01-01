@@ -42,8 +42,13 @@ interface IApiInterface {
         @Body bodyData: DataModel.UnFollowRequestModel
     ): Deferred<Response<DataModel.UnFollowResponseModel>>
 
+    @PUT("/followoperation/follow/{otheruserid}")
+    fun requestFollow(
+        @Path("otheruserid") otheruserid: String,
+        @Body bodyData: DataModel.FollowRequestModel
+    ): Deferred<Response<DataModel.FollowResponseModel>>
 
-    // Follow işlemi gerçekleştirilecek
+
 
 }
 

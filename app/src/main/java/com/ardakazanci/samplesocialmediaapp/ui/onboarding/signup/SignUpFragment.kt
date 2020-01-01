@@ -41,6 +41,7 @@ class SignUpFragment : Fragment() {
             container,
             false
         )
+
         binding.lifecycleOwner = this
         signUpViewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
         binding.signUpViewModel = signUpViewModel

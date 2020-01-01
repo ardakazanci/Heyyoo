@@ -15,6 +15,7 @@ import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.databinding.FollowerListFragmentBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.adapter.FollowerListAdapter
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.adapter.FollowerListClickListener
+import kotlinx.android.synthetic.main.followed_list_fragment.*
 
 class FollowerListFragment : Fragment() {
 
@@ -53,11 +54,29 @@ class FollowerListFragment : Fragment() {
 
         })
 
+
+
+
+
+
         binding.rcFollowerList.adapter = adapter
 
         viewModel.followerListInfo.observe(this, Observer {
 
             adapter.submitList(it)
+
+        })
+
+
+        viewModel.followerListIsEmpty.observe(this, Observer {
+
+            if (it) {
+                binding.lyFollowerlistEmptyMessage.visibility = View.VISIBLE
+                binding.rcFollowerList.visibility = View.INVISIBLE
+            } else {
+                binding.lyFollowerlistEmptyMessage.visibility = View.INVISIBLE
+                binding.rcFollowerList.visibility = View.VISIBLE
+            }
 
         })
 

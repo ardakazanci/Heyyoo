@@ -9,8 +9,6 @@ apply plugin: "androidx.navigation.safeargs"
 apply plugin: "kotlin-kapt"
 
 
-
-
 android {
 
     compileSdkVersion 29
@@ -40,6 +38,12 @@ android {
 
     dataBinding {
         enabled true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+        exclude 'META-INF/*.version'
+        exclude 'META-INF/proguard/*.pro'
     }
 }
 
@@ -96,6 +100,7 @@ dependencies {
 
     // LiveData - ViewModel Library
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
 
     // Test Library
     testImplementation "junit:junit:$versions.junit"
@@ -117,11 +122,18 @@ dependencies {
     // ImagePicker
     implementation "com.github.qingmei2:rximagepicker:$versions.image_picker"
 
-    // Secure Shared Preferece
+    // Secure Shared Preference
     implementation "com.scottyab:secure-preferences-lib:$versions.secure_preference"
 
     // CircleImageView
     implementation "de.hdodenhof:circleimageview:$versions.circle_image_view"
+
+
+    // Algolia Dependency
+    implementation "com.algolia:instantsearch-android:$versions.algolia"
+
+    // Paging Library
+    implementation "androidx.paging:paging-runtime:$versions.paging"
 
 
 }

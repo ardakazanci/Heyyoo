@@ -16,10 +16,15 @@
         android:icon="@drawable/ic_content_plus"
         android:title="@string/title_content_share" />
 
+    <!-- <item
+         android:id="@+id/navigation_notifications"
+         android:icon="@drawable/ic_notification"
+         android:title="@string/title_notifications" />-->
+
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notification"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/text_bottom_ara" />
 
     <item
         android:id="@+id/navigation_dashboard"

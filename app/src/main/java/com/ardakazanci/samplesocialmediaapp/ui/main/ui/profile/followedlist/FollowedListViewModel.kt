@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
@@ -16,6 +17,11 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class FollowedListViewModel(private val app: Application) : AndroidViewModel(app) {
+
+
+    private val _followedListIsEmpty = MutableLiveData<Boolean>()
+    val followedListIsEmpty: LiveData<Boolean>
+        get() = _followedListIsEmpty
 
     var followedListInfo = MutableLiveData<List<DataModel.FollowedListModel>>()
 
@@ -50,11 +56,20 @@ class FollowedListViewModel(private val app: Application) : AndroidViewModel(app
         scope.launch {
             val a = followedListRepository.getFollowedListModel(userId!!)
             try {
-                a!!.let {
 
-                    followedListInfo.postValue(a)
+                if (a == null) {
+                    Log.e(LOG_TAG, "Takip Edilen boş geldi.")
+                    _followedListIsEmpty.postValue(true)
 
+                } else {
+                    _followedListIsEmpty.postValue(false)
+                    a.let {
+                        followedListInfo.postValue(a)
+
+                    }
                 }
+
+
             } catch (e: Exception) {
                 Log.e(LOG_TAG, e.printStackTrace().toString())
             }

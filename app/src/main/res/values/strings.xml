@@ -27,6 +27,7 @@
     <string name="title_content_share">Paylaş</string>
     <string name="text_unfollow_button">Takipten Çıkar</string>
     <string name="text_follow_button">Takip Et</string>
+    <string name="text_bottom_ara">Ara</string>
 
 
 </resources>

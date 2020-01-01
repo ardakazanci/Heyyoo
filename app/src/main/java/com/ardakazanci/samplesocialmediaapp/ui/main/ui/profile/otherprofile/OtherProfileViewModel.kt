@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.repositories.DashboardInfoRepository
+import com.ardakazanci.samplesocialmediaapp.repositories.FollowRepository
 import com.ardakazanci.samplesocialmediaapp.repositories.FollowedListRepository
 import com.ardakazanci.samplesocialmediaapp.repositories.UnFollowRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
@@ -54,6 +55,7 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
         FollowedListRepository(ApiService.mainApi)
 
     private val unFollowRepository: UnFollowRepository = UnFollowRepository(ApiService.mainApi)
+    private val followRepository: FollowRepository = FollowRepository(ApiService.mainApi)
 
     // <<< DATA-BINDING ISLEMLERİ
     val userFollowerCount = MutableLiveData<Long>()
@@ -124,8 +126,6 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
 
             try {
 
-                Log.e("UserID->", userId!!)
-                Log.e("OtherUserId->", _otherUserId.value!!)
                 val unFollowProcess = unFollowRepository.getUnFollowResponse(
                     userId!!, _otherUserId.value!!
                 )
@@ -142,11 +142,25 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
 
         }
 
+        // Takipten Çıkma işlemi başarıyla gerçekleştiğinde ilgili kullanıcının takipçi sayısı 1 azaltılıyor.
         userFollowerCount.value = userFollowerCount.value?.minus(1)
     }
 
     fun followUser() {
+        scope.launch {
+            try {
+                val followProcess = followRepository.getFollowResponse(
+                    _otherUserId.value!!, userId!!
+                )
+                followProcess!!.let {
+                    _otherUserIsFollow.postValue(true)
+                }
 
+            } catch (e: Exception) {
+                Log.e(LOG_TAG, "Follow işleminde problem yaşandı")
+            }
+        }
+        userFollowerCount.value = userFollowerCount.value?.plus(1)
     }
 
 

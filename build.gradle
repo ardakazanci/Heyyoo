@@ -55,5 +55,7 @@ versions.legacy_support = "1.0.0"
 versions.image_picker = "2.2.0"
 versions.secure_preference = "0.1.7"
 versions.circle_image_view = "3.0.1"
+versions.algolia = "2.2.1"
+versions.paging = "2.1.1"
 
 

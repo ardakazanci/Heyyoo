@@ -52,6 +52,7 @@ object DataModel {
 
     data class FollowerListModel(
         var _id: String,
+        var followerCount: Long,
         var userFullName: String,
         var userImageBase64: String
     )
@@ -78,6 +79,22 @@ object DataModel {
     data class UnFollowResponseModel(
         val success: Boolean,
         val message: String
+    )
+
+    // FOLLOW İÇİN
+    data class FollowRequestModel(
+        val userid: String
+    )
+
+    data class FollowResponseModel(
+        val success: Boolean,
+        val message: String
+    )
+
+    // ALGOLIA
+    data class AlgoliaUserResponseModel(
+        val userFullName: String,
+        val userImageBase64: String
     )
 
 

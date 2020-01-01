@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
@@ -16,6 +17,11 @@ import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
 class FollowerListViewModel(private var app: Application) : AndroidViewModel(app) {
+
+
+    private val _followerListIsEmpty = MutableLiveData<Boolean>()
+    val followerListIsEmpty: LiveData<Boolean>
+        get() = _followerListIsEmpty
 
 
     var followerListInfo = MutableLiveData<List<DataModel.FollowerListModel>>()
@@ -53,11 +59,22 @@ class FollowerListViewModel(private var app: Application) : AndroidViewModel(app
         scope.launch {
             val a = followerListInfoRepository.getFollowerListInfo(userId!!)
             try {
-                a!!.let {
 
-                    followerListInfo.postValue(a)
+                if (a == null) {
+
+                    _followerListIsEmpty.postValue(true)
+                } else {
+
+                    a.let {
+
+                        followerListInfo.postValue(a)
+                        _followerListIsEmpty.postValue(false)
+
+                    }
 
                 }
+
+
             } catch (e: Exception) {
                 Log.e(LOG_TAG, e.printStackTrace().toString())
             }

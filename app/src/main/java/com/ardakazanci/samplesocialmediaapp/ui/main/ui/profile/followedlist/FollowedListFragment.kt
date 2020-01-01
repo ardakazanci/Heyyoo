@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 
@@ -59,6 +61,18 @@ class FollowedListFragment : Fragment() {
         viewModel.followedListInfo.observe(this, Observer {
 
             adapter.submitList(it)
+
+        })
+
+        viewModel.followedListIsEmpty.observe(this, Observer {
+
+            if (it) {
+                binding.rcFollowedList.visibility = View.INVISIBLE
+                binding.lyFollowedlistEmptyMessage.visibility = View.VISIBLE
+            } else {
+                binding.rcFollowedList.visibility = View.VISIBLE
+                binding.lyFollowedlistEmptyMessage.visibility = View.INVISIBLE
+            }
 
         })
 

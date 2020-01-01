@@ -82,4 +82,9 @@
             android:name="userid"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment" />
 </navigation>

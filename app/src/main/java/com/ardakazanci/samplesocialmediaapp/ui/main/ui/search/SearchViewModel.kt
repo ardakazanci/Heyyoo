@@ -35,7 +35,7 @@ class SearchViewModel : ViewModel() {
     val dataSourceFactory = SearcherSingleIndexDataSource.Factory(searcher) { hit ->
 
         DataModel.AlgoliaUserResponseModel(
-            hit.json.getPrimitive("_id").content,
+            hit.json.getPrimitive("objectID").content,
             hit.json.getPrimitive("userFullName").content,
             hit.json.getPrimitive("userImageBase64").content
         )

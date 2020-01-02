@@ -3,6 +3,7 @@ package com.ardakazanci.samplesocialmediaapp.ui.main.ui.search
 
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -11,7 +12,8 @@ import com.algolia.instantsearch.core.searchbox.SearchBoxView
 
 public class SearchBoxNoEmptyQuery(
     public val searchView: SearchView,
-    val recyclerview: RecyclerView
+    val recyclerview: RecyclerView,
+    val linearlayout: LinearLayout
 ) : SearchBoxView {
 
     override fun setText(text: String?, submitQuery: Boolean) {
@@ -29,7 +31,7 @@ public class SearchBoxNoEmptyQuery(
                     onQuerySubmitted?.invoke(query)
                 }
 
-                Log.e("Çalıştı", "Burada")
+
                 return false
             }
 
@@ -38,8 +40,10 @@ public class SearchBoxNoEmptyQuery(
 
                     onQuerySubmitted?.invoke(query)
                     if (query.length >= 2) {
+                        linearlayout.visibility = View.INVISIBLE
                         recyclerview.visibility = View.VISIBLE
                     } else if (query.isEmpty()) {
+                        linearlayout.visibility = View.VISIBLE
                         recyclerview.visibility = View.GONE
                     }
 

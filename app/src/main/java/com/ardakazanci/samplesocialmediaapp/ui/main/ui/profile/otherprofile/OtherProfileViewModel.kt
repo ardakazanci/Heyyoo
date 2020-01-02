@@ -74,7 +74,7 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
 
 
     init {
-        Log.i(LOG_TAG, "OnCreated ${_otherUserId.value}")
+        Log.i(LOG_TAG, "OnCreated $userId")
         scope.launch {
             val a = dashboardInfoRepository.getUserInfoResponse(
                 _otherUserId.value!!,

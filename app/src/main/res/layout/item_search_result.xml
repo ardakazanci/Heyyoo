@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="clicklistener"
             type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchResultClickListener" />
@@ -19,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="0.5dp"
         app:cardCornerRadius="0dp"
+        android:background="?android:attr/selectableItemBackground"
         android:onClick="@{() -> clicklistener.onClick(user)}"
         android:layout_margin="8dp"
         tools:layout_height="50dp">
@@ -30,9 +30,9 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/itemUserImage"
-                android:layout_width="48dp"
+                android:layout_width="56dp"
                 app:imageUrlNoCircle="@{user.userImageBase64}"
-                android:layout_height="48dp"
+                android:layout_height="56dp"
                 tools:src="@drawable/arda" />
 
             <TextView

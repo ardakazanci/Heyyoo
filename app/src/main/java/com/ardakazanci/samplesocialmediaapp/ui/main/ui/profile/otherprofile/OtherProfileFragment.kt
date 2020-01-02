@@ -2,6 +2,7 @@ package com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.otherprofile
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,13 +38,12 @@ class OtherProfileFragment : Fragment() {
 
         arguments!!.let { arguments ->
             val args = OtherProfileFragmentArgs.fromBundle(arguments)
-
+            Log.e("USERID", args.userid)
             viewModel._otherUserId.value = args.userid
 
         }
 
         viewModel.otherUserIsFollow.observe(this, Observer {
-
 
             if (it) {
                 binding.btnFollow.visibility = View.INVISIBLE

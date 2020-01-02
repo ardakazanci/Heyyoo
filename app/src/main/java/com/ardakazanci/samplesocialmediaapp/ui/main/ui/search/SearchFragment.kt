@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.algolia.instantsearch.core.connection.ConnectionHandler
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.algolia.instantsearch.core.Callback
@@ -49,6 +50,13 @@ class SearchFragment : Fragment() {
         val adapter = SearchResultAdapter(SearchResultClickListener { hit ->
 
             Toast.makeText(context, "${hit}", Toast.LENGTH_LONG).show()
+            view!!.let { view: View ->
+
+                view.findNavController().navigate(
+                    SearchFragmentDirections.actionNavigationSearchToOtherProfileFragment(hit)
+                )
+
+            }
 
         })
 
@@ -69,7 +77,8 @@ class SearchFragment : Fragment() {
         connection += viewModel.searchBox.connectView(
             SearchBoxNoEmptyQuery(
                 binding.searchView,
-                binding.userList
+                binding.userList,
+                binding.lySearchEmptyMessage
             )
         )
 

@@ -1,5 +1,6 @@
 package com.ardakazanci.samplesocialmediaapp.data.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.File
 
 // API işlemleri için kullanılacak model - data verileri
@@ -93,6 +94,7 @@ object DataModel {
 
     // ALGOLIA
     data class AlgoliaUserResponseModel(
+        @SerializedName("objectID")
         val _id: String,
         val userFullName: String,
         val userImageBase64: String

@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="0.5dp"
-    app:cardCornerRadius="0dp"
-    android:layout_margin="8dp"
-    tools:layout_height="50dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="clicklistener"
+            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchResultClickListener" />
+
+        <variable
+            name="user"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.AlgoliaUserResponseModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0.5dp"
+        app:cardCornerRadius="0dp"
+        android:onClick="@{() -> clicklistener.onClick(user)}"
+        android:layout_margin="8dp"
+        tools:layout_height="50dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/itemUserImage"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            tools:src="@drawable/arda" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/itemUserImage"
+                android:layout_width="48dp"
+                app:imageUrlNoCircle="@{user.userImageBase64}"
+                android:layout_height="48dp"
+                tools:src="@drawable/arda" />
 
-        <TextView
-            android:id="@+id/itemUserFullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBody1"
-            tools:text="Arda Kazancı" />
+            <TextView
+                android:id="@+id/itemUserFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{user.userFullName}"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="Arda Kazancı" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

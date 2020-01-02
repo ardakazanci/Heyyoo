@@ -12,6 +12,7 @@ class FollowedListAdapter(val clickListener: FollowedListClickListener) :
     ListAdapter<DataModel.FollowedListModel, FollowedListAdapter.ViewHolder>(
         FollowedListDiffCallback()
     ) {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

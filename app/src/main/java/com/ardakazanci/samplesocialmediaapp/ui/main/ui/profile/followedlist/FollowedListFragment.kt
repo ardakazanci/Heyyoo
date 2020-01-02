@@ -35,6 +35,7 @@ class FollowedListFragment : Fragment() {
         )
 
 
+
         viewModel = ViewModelProviders.of(this).get(FollowedListViewModel::class.java)
 
         binding.followedViewModel = viewModel

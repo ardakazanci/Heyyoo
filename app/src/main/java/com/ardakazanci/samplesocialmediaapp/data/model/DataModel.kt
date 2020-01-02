@@ -93,6 +93,7 @@ object DataModel {
 
     // ALGOLIA
     data class AlgoliaUserResponseModel(
+        val _id: String,
         val userFullName: String,
         val userImageBase64: String
     )

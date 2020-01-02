@@ -20,7 +20,6 @@ import io.ktor.client.features.logging.LogLevel
 
 class SearchViewModel : ViewModel() {
 
-
     // Algolia yı kullanabilmek için gerekli kurumluklar.
     val client = ClientSearch(
         ApplicationID(
@@ -34,7 +33,9 @@ class SearchViewModel : ViewModel() {
     val searcher = SearcherSingleIndex(index)
 
     val dataSourceFactory = SearcherSingleIndexDataSource.Factory(searcher) { hit ->
+
         DataModel.AlgoliaUserResponseModel(
+            hit.json.getPrimitive("_id").content,
             hit.json.getPrimitive("userFullName").content,
             hit.json.getPrimitive("userImageBase64").content
         )
@@ -43,7 +44,6 @@ class SearchViewModel : ViewModel() {
     val pagedListConfig = PagedList.Config.Builder().setPageSize(20).build()
     val users: LiveData<PagedList<DataModel.AlgoliaUserResponseModel>> =
         LivePagedListBuilder(dataSourceFactory, pagedListConfig).build()
-    val adapterProduct = SearchResultAdapter()
 
 
     // Arama Kısmı

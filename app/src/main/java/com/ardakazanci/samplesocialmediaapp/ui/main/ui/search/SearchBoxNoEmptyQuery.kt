@@ -37,7 +37,7 @@ public class SearchBoxNoEmptyQuery(
                 query?.isNotEmpty()?.let {
 
                     onQuerySubmitted?.invoke(query)
-                    if (query.length >= 5) {
+                    if (query.length >= 2) {
                         recyclerview.visibility = View.VISIBLE
                     } else if (query.isEmpty()) {
                         recyclerview.visibility = View.GONE

@@ -23,8 +23,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_profile_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_marginStart="8dp"
             app:imageUrlNoCircle="@{followed.userImageBase64}"
             app:layout_constraintStart_toStartOf="parent"

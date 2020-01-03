@@ -76,20 +76,30 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
     init {
         Log.i(LOG_TAG, "OnCreated $userId")
         scope.launch {
+
+
             val a = dashboardInfoRepository.getUserInfoResponse(
                 _otherUserId.value!!,
                 "Bearer " + userToken!!
             )
+            Log.e("User Info", a!!.userFullName)
 
-            val followedList = followedListRepository.getFollowedListModel(userId!!)
+
+
+
             try {
 
 
                 a!!.let {
 
-                    followedList!!.let {
+                    val userFullName = a.userFullName
+                    val userSharedCount = a.userSharedCount
+                    val userFollowedCount = a.userFollowedCount
+                    val userFollowerCount = a.userFollowerCount
+                    val userEmail = a.userEmail
+                    val userImageBase64 = a.userImageBase64
 
-
+                    if (userSharedCount == 0L && userFollowedCount == 0L && userFollowerCount == 0L) {
                         infoDataWith(
                             a.userFullName,
                             a.userFollowerCount,
@@ -97,16 +107,32 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
                             a.userSharedCount,
                             a.userImageBase64
                         )
-                        followedList.forEach {
+                        _otherUserIsFollow.postValue(false)
+                    } else {
+                        val followedList = followedListRepository.getFollowedListModel(userId!!)
+                        followedList!!.let {
 
-                            if (it._id == _otherUserId.value) {
-                                Log.e(LOG_TAG, "Bu profilde ki kullanıcı takip ediliyormuş")
-                                _otherUserIsFollow.postValue(true)
+
+                            infoDataWith(
+                                a.userFullName,
+                                a.userFollowerCount,
+                                a.userFollowedCount,
+                                a.userSharedCount,
+                                a.userImageBase64
+                            )
+                            followedList.forEach {
+
+                                if (it._id == _otherUserId.value) {
+                                    Log.e(LOG_TAG, "Bu profilde ki kullanıcı takip ediliyormuş")
+                                    _otherUserIsFollow.postValue(true)
+                                }
+
                             }
 
                         }
-
                     }
+
+
 
 
                 }

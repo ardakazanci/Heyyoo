@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.databinding.ContentAddFragmentBinding
@@ -54,6 +55,16 @@ class ContentAddFragment : Fragment() {
         binding.contentViewModel = viewModel
 
         binding.imgImagePick.visibility = View.GONE
+
+        viewModel.mProgressVisible.observe(this, Observer { value ->
+
+            if (value) {
+                binding.pbLoadingContentAdd.visibility = View.VISIBLE
+            } else {
+                binding.pbLoadingContentAdd.visibility = View.GONE
+            }
+
+        })
 
 
     }

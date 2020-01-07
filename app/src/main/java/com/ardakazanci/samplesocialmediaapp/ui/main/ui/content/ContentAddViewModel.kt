@@ -7,7 +7,10 @@ import android.content.SharedPreferences
 import android.location.Geocoder
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
+import com.ardakazanci.samplesocialmediaapp.repositories.ContentAddRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
 import com.ardakazanci.samplesocialmediaapp.utils.toast
 import com.securepreferences.SecurePreferences
@@ -24,6 +27,7 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
 
     private val mContext: Context = app.applicationContext
 
+    // << SHAREDPREFS DEĞERLERİ >>
     val preferences: SharedPreferences =
         SecurePreferences(
             mContext,
@@ -34,12 +38,9 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
     val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
     val userId: String? = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
 
-
+    // << LOCATION DEĞERLERİ >>
     private var locationGetter: LocationGetterBuilder
-
     private var geocoder: Geocoder
-
-
     private val LOG_TAG = "ContentAddVM"
 
 
@@ -55,6 +56,12 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
     val bindContentText = MutableLiveData<String>()
     val bindContentLocation = MutableLiveData<String>()
 
+
+    private val _mProgressVisible = MutableLiveData<Boolean>()
+    val mProgressVisible: LiveData<Boolean>
+        get() = _mProgressVisible
+
+
     // <<< COROUTINES BAŞLANGIÇ >>>
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
@@ -64,14 +71,20 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
 
 
     init {
+        Log.i(LOG_TAG, userToken)
+        Log.i(LOG_TAG, userId)
         Log.i(LOG_TAG, "onCreated")
         locationGetter = LocationGetterBuilder(app.applicationContext)
         geocoder = Geocoder(app.applicationContext, Locale.getDefault())
     }
 
 
-    fun binContentShare() {
+    private val contentAddRepository: ContentAddRepository =
+        ContentAddRepository(ApiService.mainApi)
 
+
+    fun binContentShare() {
+        _mProgressVisible.postValue(true)
         val userContentText = bindContentText.value
         val userLocationValue = bindContentLocation.value
 
@@ -96,7 +109,34 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
 
 
         val unixTime = System.currentTimeMillis() / 1000L
+        val userTokenBearer = "Bearer $userToken"
         scope.launch {
+
+            if (userId.isNullOrEmpty()) {
+                mContext.toast("UserID değeri okunamadı.")
+            } else if (userToken.isNullOrEmpty()) {
+                mContext.toast("UserTOKEN değeri okunamadı.")
+            } else {
+
+                val contentAddProcess = contentAddRepository.getContentAddResponse(
+                    userId, unixTime, userLocationValue, userContentValue, userTokenBearer
+                )
+
+                contentAddProcess!!.let {
+                    if (contentAddProcess.success) {
+                        mContext.toast("Gönderi başarılı")
+                        _mProgressVisible.postValue(false)
+                    } else if (!contentAddProcess.success) {
+                        mContext.toast("Gönderi başarısız")
+                        _mProgressVisible.postValue(false)
+                    } else {
+                        mContext.toast("Başka bir problem yaşandı")
+                        _mProgressVisible.postValue(false)
+                    }
+                }
+
+
+            }
 
 
         }

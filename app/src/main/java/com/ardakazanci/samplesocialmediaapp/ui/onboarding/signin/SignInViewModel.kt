@@ -38,6 +38,7 @@ class SignInViewModel(private val app: Application) : AndroidViewModel(app) {
 
 
     init {
+
         Log.i(LOG_TAG, "ViewModel Created")
     }
 

@@ -51,7 +51,7 @@ interface IApiInterface {
     @POST("/contentoperation/add")
     fun requestContentAdd(
         @Body bodyData: DataModel.requestBodyContentShare, // Body Data
-        @Header("authorization") auth: String // Token
+        @Header("Authorization") auth: String // Token
     ): Deferred<Response<DataModel.responseContentShare>>
 
 }

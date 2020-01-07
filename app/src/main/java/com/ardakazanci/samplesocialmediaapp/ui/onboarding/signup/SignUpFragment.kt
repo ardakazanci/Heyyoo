@@ -28,7 +28,6 @@ import es.dmoral.toasty.Toasty
 class SignUpFragment : Fragment() {
 
     private lateinit var signUpViewModel: SignUpViewModel
-    private lateinit var binding: SignUpFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,6 +58,7 @@ class SignUpFragment : Fragment() {
                                 .openGallery(it).subscribe { result ->
                                     signUpViewModel.fieldUserImageUri.postValue(result.uri)
                                 }
+
                         }
 
 

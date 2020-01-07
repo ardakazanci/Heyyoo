@@ -56,12 +56,12 @@ class DashboardViewModel(private val app: Application) : AndroidViewModel(app) {
 
 
     init {
+
         scope.launch {
             val a = dashboardInfoRepository.getUserInfoResponse(
                 userId!!,
                 "Bearer " + userToken!!
             )
-
             try {
                 a!!.let {
                     infoDataWith(

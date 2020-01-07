@@ -1,6 +1,7 @@
 package com.ardakazanci.samplesocialmediaapp.utils
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -12,6 +13,7 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Base64
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.ardakazanci.samplesocialmediaapp.R
 import es.dmoral.toasty.Toasty
 import java.io.ByteArrayOutputStream
@@ -30,6 +32,15 @@ fun Context.toast(message: String) {
         true
     ).show()
 
+}
+
+fun Fragment.openGalleryForPickingImage(code: Int) {
+    Intent(
+        Intent.ACTION_PICK,
+        MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+    ).apply {
+        startActivityForResult(Intent.createChooser(this, "Select"), code)
+    }
 }
 
 fun getEncoded64ImageStringFromBitmap(bitmap: Bitmap?): String {

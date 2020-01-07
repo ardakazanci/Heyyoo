@@ -100,5 +100,20 @@ object DataModel {
         val userImageBase64: String
     )
 
+    // CONTENT SHARE
+    data class requestBodyContentShare(
+        val sharingUserId: String,
+        val sharingDate: Long,
+        val sharingUserLocation: String,
+        val contentText: String
+    )
+
+    data class responseContentShare(
+        val message: String,
+        val error: String?,
+        val success: Boolean
+
+    )
+
 
 }

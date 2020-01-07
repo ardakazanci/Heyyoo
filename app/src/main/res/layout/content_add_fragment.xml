@@ -1,13 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.main.ui.content.ContentAddFragment">
 
-    <TextView
+    <data>
+
+        <variable
+            name="contentViewModel"
+            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddViewModel" />
+
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="22dp">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_content_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_edt_line"
+                    android:fontFamily="@font/monserat_regular"
+                    android:gravity="start"
+                    android:hint="İçerik metni."
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:maxLines="3"
+                    android:paddingBottom="20dp"
+                    android:text="@={contentViewModel.bindContentText}"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/color_signup_text"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_user_content_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_content_layout">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imv_user_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{()-> contentViewModel.bindContentLocation()}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_location_on_black_24dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgImagePick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_image_black_24dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monserat_regular"
+                    android:gravity="right|center_vertical"
+                    android:text="Fotoğraf ve Konumunuzu paylaşabilirsiniz."
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_content_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/color_sign_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/monserat_regular"
+                android:onClick="@{()->contentViewModel.binContentShare()}"
+                android:text="Paylaş"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ly_user_content_action" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_edt_line"
+            android:fontFamily="@font/monserat_regular"
+            android:gravity="start"
+            android:hint="İçerik metni."
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:maxLines="3"
+            android:paddingBottom="20dp"
+            android:text="@={contentViewModel.bindContentText}"
+            android:textAlignment="textStart"
+            android:textColor="@color/color_signup_text"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_user_content_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_content_layout">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imv_user_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()-> contentViewModel.bindContentLocation()}"
+            android:padding="8dp"
+            android:src="@drawable/ic_location_on_black_24dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgImagePick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_image_black_24dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/monserat_regular"
+            android:gravity="right|center_vertical"
+            android:text="Fotoğraf ve Konumunuzu paylaşabilirsiniz."
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_content_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_oval"
+        android:backgroundTint="@color/color_sign_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/monserat_regular"
+        android:onClick="@{()->contentViewModel.binContentShare()}"
+        android:text="Paylaş"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ly_user_content_action" />-->
+
+
+</layout>

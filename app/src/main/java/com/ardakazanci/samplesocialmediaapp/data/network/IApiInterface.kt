@@ -48,7 +48,11 @@ interface IApiInterface {
         @Body bodyData: DataModel.FollowRequestModel
     ): Deferred<Response<DataModel.FollowResponseModel>>
 
-
+    @POST("/contentoperation/add")
+    fun requestContentAdd(
+        @Body bodyData: DataModel.requestBodyContentShare, // Body Data
+        @Header("authorization") auth: String // Token
+    ): Deferred<Response<DataModel.responseContentShare>>
 
 }
 

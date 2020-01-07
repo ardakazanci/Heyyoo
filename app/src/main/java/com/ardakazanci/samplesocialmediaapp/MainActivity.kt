@@ -1,7 +1,6 @@
 package com.ardakazanci.samplesocialmediaapp
 
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun prefsUserTokenControl() {
 

@@ -122,11 +122,16 @@ dependencies {
     // ImagePicker
     implementation "com.github.qingmei2:rximagepicker:$versions.image_picker"
 
+
     // Secure Shared Preference
     implementation "com.scottyab:secure-preferences-lib:$versions.secure_preference"
 
     // CircleImageView
     implementation "de.hdodenhof:circleimageview:$versions.circle_image_view"
+    //implementation 'com.github.jkwiecien:EasyImage:3.0.3'
+    //implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+    // for experimental rx picker
+    //implementation 'com.github.esafirm.android-image-picker:rximagepicker:2.2.0'
 
 
     // Algolia Dependency
@@ -134,6 +139,15 @@ dependencies {
 
     // Paging Library
     implementation "androidx.paging:paging-runtime:$versions.paging"
+
+    // Splash Screen
+    implementation "com.rbddevs.splashy:splashy:$versions.splashscreen"
+
+    // Location
+    implementation 'codes.titanium:locgetter:1.2.0'
+    implementation 'codes.titanium:connectableactivity:1.0.3'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
 
 
 }

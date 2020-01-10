@@ -16,10 +16,7 @@ import com.ardakazanci.samplesocialmediaapp.utils.toast
 import com.securepreferences.SecurePreferences
 import com.titanium.locgetter.main.LocationGetterBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
@@ -162,10 +159,13 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
                         val address_2 = adress[0].countryName.toString()
 
                         if (!address_1.isNullOrEmpty() && !!address_2.isNullOrEmpty()) {
+
                             app.toast("Konum bilgisi alınırken problem yaşandı.")
+
                         } else {
+
                             bindContentLocation.value = address_1 + " " + address_2
-                            app.toast("${address_1} , ${address_2}")
+                            app.toast("Lokasyon değeri başarıyla alındı")
                         }
 
                     }
@@ -183,6 +183,8 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
         super.onCleared()
         Log.i(LOG_TAG, "OnCleared")
     }
+
+    fun clearedCoroutines() = coroutineContext.cancel()
 
 
 }

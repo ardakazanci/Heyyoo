@@ -18,10 +18,7 @@ import com.ardakazanci.samplesocialmediaapp.repositories.UnFollowRepository
 import com.ardakazanci.samplesocialmediaapp.utils.Constants
 import com.ardakazanci.samplesocialmediaapp.utils.getDecodeBase64toBitmap
 import com.securepreferences.SecurePreferences
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -211,6 +208,8 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
         super.onCleared()
         Log.i(LOG_TAG, "OnCleared")
     }
+
+    fun onClearedCoroutines() = coroutineContext.cancel()
 }
 
 

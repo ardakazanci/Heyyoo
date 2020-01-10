@@ -62,6 +62,8 @@ class SearchViewModel : ViewModel() {
         super.onCleared()
         searcher.cancel()
         connection.disconnect()
+
     }
+
 
 }

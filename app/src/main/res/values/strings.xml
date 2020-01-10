@@ -28,6 +28,8 @@
     <string name="text_unfollow_button">Takipten Çıkar</string>
     <string name="text_follow_button">Takip Et</string>
     <string name="text_bottom_ara">Ara</string>
+    <string name="loading">loading</string>
+    <string name="network_connection_error">İnternet bağlantınız yok!</string>
 
 
 </resources>

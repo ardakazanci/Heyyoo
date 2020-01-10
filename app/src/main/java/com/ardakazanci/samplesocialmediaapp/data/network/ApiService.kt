@@ -14,8 +14,9 @@ object ApiService {
     // Retrofit İstemcisinin tutulacağı val değişkeni.
     private val apiClient = OkHttpClient().newBuilder().build()
 
+
     // Retrofit İstemcisinin Oluşturulması
-    private fun getRetrofit(): Retrofit {
+    fun getRetrofit(): Retrofit {
 
         return Retrofit.Builder().client(apiClient)
             .baseUrl(Constants.API_URL)

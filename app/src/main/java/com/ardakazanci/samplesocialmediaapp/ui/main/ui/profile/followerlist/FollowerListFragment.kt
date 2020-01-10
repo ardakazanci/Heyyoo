@@ -86,5 +86,10 @@ class FollowerListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.cancelCoroutines()
+    }
+
 
 }

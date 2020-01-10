@@ -22,7 +22,6 @@ import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.databinding.ContentAddFragmentBinding
 
 
-
 class ContentAddFragment : Fragment() {
 
 
@@ -132,6 +131,11 @@ class ContentAddFragment : Fragment() {
  */
  */
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.clearedCoroutines()
+    }
 
 
 }

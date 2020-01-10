@@ -18,7 +18,6 @@ import com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.shared.Prof
 import com.google.android.material.tabs.TabLayout
 
 
-
 class DashboardFragment : Fragment() {
 
 
@@ -81,6 +80,11 @@ class DashboardFragment : Fragment() {
         viewPagerProfile.adapter = pagerAdapter
         tabLayoutProfile.setupWithViewPager(viewPagerProfile)
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.cancelCoroutines()
     }
 
 }

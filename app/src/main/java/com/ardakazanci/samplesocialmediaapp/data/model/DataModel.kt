@@ -1,7 +1,8 @@
 package com.ardakazanci.samplesocialmediaapp.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import java.io.File
 
 // API işlemleri için kullanılacak model - data verileri
 
@@ -117,3 +118,46 @@ object DataModel {
 
 
 }
+
+// HOME SHARED İŞLEMLERİ
+@Entity
+data class Doc(
+    @SerializedName("contentCheck")
+    val contentCheck: Boolean,
+    @SerializedName("contentLikedCount")
+    val contentLikedCount: Int,
+    @SerializedName("contentNotLikeCount")
+    val contentNotLikeCount: Int,
+    @SerializedName("contentText")
+    val contentText: String,
+    @SerializedName("_id")
+    @PrimaryKey
+    var _id: String,
+    @SerializedName("sharingDate")
+    val sharingDate: Int,
+    @SerializedName("sharingUserId")
+    val sharingUserId: String,
+    @SerializedName("sharingUserLocation")
+    val sharingUserLocation: String,
+    @SerializedName("__v")
+    val v: Int
+
+
+)
+
+data class ContentResponse(
+    val content: Content
+)
+
+data class Content(
+    val after: Int?,
+    val before: Int?,
+    val docs: List<Doc>,
+    val hasNextPage: Boolean,
+    val hasPrevPage: Boolean,
+    val limit: Int,
+    val page: Int,
+    val pagingCounter: Int,
+    val totalDocs: Int,
+    val totalPages: Int
+)

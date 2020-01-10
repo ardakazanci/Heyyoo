@@ -83,4 +83,11 @@ class FollowedListFragment : Fragment() {
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.cancelCoroutines()
+    }
+
+
+
 }

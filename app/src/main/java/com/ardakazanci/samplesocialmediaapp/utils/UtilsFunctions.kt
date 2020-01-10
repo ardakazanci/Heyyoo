@@ -14,9 +14,14 @@ import android.provider.MediaStore
 import android.util.Base64
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.ardakazanci.samplesocialmediaapp.R
+
 import es.dmoral.toasty.Toasty
 import java.io.ByteArrayOutputStream
+
+import android.annotation.SuppressLint
+import com.ardakazanci.samplesocialmediaapp.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun Context.toast(message: String) {
@@ -83,6 +88,15 @@ fun bitmapToDrawable(image: Bitmap, resources: Resources): Drawable? {
     val bitmap: Bitmap = image
     val drawable: Drawable = BitmapDrawable(resources, bitmap)
     return drawable
+}
+
+
+@SuppressLint("SimpleDateFormat")
+fun unixToDate(timeStamp: Int): String? {
+    val time = Date(timeStamp.toLong() * 1000)
+    val sdf = SimpleDateFormat("yyyy-MM-dd")
+    return sdf.format(time)
+
 }
 
 

@@ -1,5 +1,6 @@
 package com.ardakazanci.samplesocialmediaapp.data.network
 
+import com.ardakazanci.samplesocialmediaapp.data.model.ContentResponse
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
@@ -53,6 +54,14 @@ interface IApiInterface {
         @Body bodyData: DataModel.requestBodyContentShare, // Body Data
         @Header("Authorization") auth: String // Token
     ): Deferred<Response<DataModel.responseContentShare>>
+
+    // CONTENT - HOME FRAGMENT FETCH DATA
+    @GET("/contentoperation/getAllSharedd")
+    suspend fun fetchContents(
+        @Query("limit") loadSize: Int = 10,
+        @Query("after") after: Int? = null,
+        @Query("before") before: Int? = null
+    ): Response<ContentResponse>
 
 }
 

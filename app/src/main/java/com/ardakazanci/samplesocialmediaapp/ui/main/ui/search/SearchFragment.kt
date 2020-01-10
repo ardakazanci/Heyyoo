@@ -30,7 +30,7 @@ class SearchFragment : Fragment() {
 
 
     private val connection = ConnectionHandler()
-
+    private lateinit var viewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,7 @@ class SearchFragment : Fragment() {
             false
         )
 
-        val viewModel = ViewModelProviders.of(requireActivity())[SearchViewModel::class.java]
+        viewModel = ViewModelProviders.of(requireActivity())[SearchViewModel::class.java]
 
         binding.searchViewModel = viewModel
 

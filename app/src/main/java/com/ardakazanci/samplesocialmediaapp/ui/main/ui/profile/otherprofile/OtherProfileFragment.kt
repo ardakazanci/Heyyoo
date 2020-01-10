@@ -64,5 +64,9 @@ class OtherProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.onClearedCoroutines()
+    }
 
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +16,7 @@ import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.databinding.FragmentHomeBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddViewModel
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.ContentAdapter
+import com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.ui.SystemImagePicker
 
@@ -22,7 +24,7 @@ import com.qingmei2.rximagepicker.ui.SystemImagePicker
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private val contentAdapter = ContentAdapter()
+
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -47,12 +49,19 @@ class HomeFragment : Fragment() {
 
         binding.viewmodel = homeViewModel
 
-        homeViewModel.getPosts().observe(this, Observer {
-            contentAdapter.submitList(it)
+        val adapter = ContentAdapter(HomeLikeClickListener { hit ->
+
+            Toast.makeText(context, "${hit}", Toast.LENGTH_LONG).show()
+
+
         })
 
-        binding.rcHomeSharedList.layoutManager = LinearLayoutManager(requireContext())
-        binding.rcHomeSharedList.adapter = contentAdapter
+
+        homeViewModel.getPosts().observe(this, Observer {
+            adapter.submitList(it)
+        })
+
+        binding.rcHomeSharedList.adapter = adapter
 
         return binding.root
 

@@ -8,45 +8,52 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.data.model.Doc
+import com.ardakazanci.samplesocialmediaapp.databinding.ItemListHomeBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.util.DiffUtilCallBack
 import com.ardakazanci.samplesocialmediaapp.utils.unixToDate
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.item_list_home.view.*
 
-class ContentAdapter :
+class ContentAdapter(val clickListener: HomeLikeClickListener) :
     PagedListAdapter<Doc, ContentAdapter.MyViewHolder>(DiffUtilCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list_home, parent, false)
-        return MyViewHolder(view)
+        return MyViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        getItem(position)?.let {
-            holder.bindPost(it)
-        }
+        val doc = getItem(position)
+        if (doc != null) holder.bindPost(doc, clickListener)
 
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val contentTextValue: AppCompatTextView = itemView.item_content_text
-        private val contentLocationValue: Chip = itemView.item_content_location
-        private val contentLikeCountValue: AppCompatTextView = itemView.item_content_like_count
-        private val contentDislikeCountValue: AppCompatTextView =
-            itemView.item_content_dislike_count
-        private val contentDateValue: AppCompatTextView = itemView.item_content_date
+    class MyViewHolder private constructor(val binding: ItemListHomeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bindPost(content: Doc) {
+        fun bindPost(content: Doc, clickListener: HomeLikeClickListener) {
             with(content) {
-                contentTextValue.text = contentText
-                contentLocationValue.text = sharingUserLocation
-                contentLikeCountValue.text = contentLikedCount.toString()
-                contentDislikeCountValue.text = contentNotLikeCount.toString()
-                contentDateValue.text = unixToDate(sharingDate)
+
+                binding.docModel = content
+                binding.clickListener = clickListener
+                binding.executePendingBindings()
 
             }
         }
+
+        companion object {
+            fun from(parent: ViewGroup): MyViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemListHomeBinding.inflate(layoutInflater, parent, false)
+                return MyViewHolder(binding)
+            }
+        }
+
+
+    }
+}
+
+class HomeLikeClickListener(val clickListener: (doc: String) -> Unit) {
+    fun onClick(doc: Doc) {
+        clickListener(doc._id) // İlgili Doc a ait id.
     }
 }

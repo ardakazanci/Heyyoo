@@ -1,127 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:elevation="10dp"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <variable
+            name="clickListener"
+            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener" />
+
+        <variable
+            name="docModel"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.Doc" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="10dp"
+        android:orientation="vertical">
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_content_text"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/monserat_regular"
-            android:maxLines="4"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/lorem/random" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_content_text">
+            android:layout_height="match_parent">
 
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_content_date"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:fontFamily="@font/monserrat_medium"
-                android:gravity="center_vertical"
+                android:id="@+id/item_content_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/monserat_regular"
+                android:maxLines="4"
+                android:text="@{docModel.contentText}"
                 android:textSize="14sp"
-                android:textStyle="italic"
-                tools:text="@tools:sample/date/ddmmyy" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/lorem/random" />
 
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/item_content_location"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_sign_button"
-                android:clickable="false"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                tools:text="@tools:sample/last_names" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_content_text">
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_content_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/monserrat_medium"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:text="@{String.valueOf(docModel.sharingDate)}"
+                    android:textStyle="italic"
+                    tools:text="@tools:sample/date/ddmmyy" />
 
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginRight="8dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/ic_like" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/item_content_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/color_sign_button"
+                    android:clickable="false"
+                    android:text="@{docModel.sharingUserLocation}"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    tools:text="@tools:sample/last_names" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_content_like_count"
-                android:layout_width="wrap_content"
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:fontFamily="@font/monserat_regular"
-                android:textSize="12sp"
-                tools:text="0" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/ic_dislike" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_content_dislike_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:fontFamily="@font/monserat_regular"
-                android:textSize="12sp"
-                tools:text="0" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 
-        </LinearLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{() -> clickListener.onClick(docModel)}"
+                    android:src="@drawable/ic_like" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_content_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@{String.valueOf(docModel.contentLikedCount)}"
+                    android:fontFamily="@font/monserat_regular"
+                    android:textSize="12sp"
+                    tools:text="0" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_dislike" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_content_dislike_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{String.valueOf(docModel.contentNotLikeCount)}"
+                    android:fontFamily="@font/monserat_regular"
+                    android:textSize="12sp"
+                    tools:text="0" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
-</com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -56,12 +56,18 @@ interface IApiInterface {
     ): Deferred<Response<DataModel.responseContentShare>>
 
     // CONTENT - HOME FRAGMENT FETCH DATA
-    @GET("/contentoperation/getAllSharedd")
+    @GET("/contentoperation/getAllShared")
     suspend fun fetchContents(
         @Query("limit") loadSize: Int = 10,
         @Query("after") after: Int? = null,
         @Query("before") before: Int? = null
     ): Response<ContentResponse>
 
+
+    // GET USER SHARED CONTENT
+    @GET("/contentoperation/userShared/{userid}")
+    fun fetchUserSharedContent(
+        @Path("userid") userid: String
+    ): Deferred<Response<DataModel.userSharedContentResponse>>
 }
 

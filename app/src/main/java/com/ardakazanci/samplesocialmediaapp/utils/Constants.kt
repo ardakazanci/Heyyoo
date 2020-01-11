@@ -9,7 +9,7 @@ class Constants {
 
         const val PREF_USER_TOKEN_VALUE = "PREF_USER_TOKEN_VALUE"
         const val PREF_USER_ID_VALUE = "PREF_USER_ID_VALUE"
-        const val PREF_USER_TOKEN = "user_token_code.xml"
+        const val PREF_USER_TOKEN = "user_token_code.xml" // SharedPrefs FileName
 
 
         const val ALGOLIA_APPLICATION_ID = "YVQEKFLLV5"

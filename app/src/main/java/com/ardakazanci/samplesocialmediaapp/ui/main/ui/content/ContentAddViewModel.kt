@@ -68,9 +68,9 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
 
 
     init {
-        Log.i(LOG_TAG, userToken)
-        Log.i(LOG_TAG, userId)
-        Log.i(LOG_TAG, "onCreated")
+//        Log.i(LOG_TAG, userToken)
+//        Log.i(LOG_TAG, userId)
+//        Log.i(LOG_TAG, "onCreated")
         locationGetter = LocationGetterBuilder(app.applicationContext)
         geocoder = Geocoder(app.applicationContext, Locale.getDefault())
     }

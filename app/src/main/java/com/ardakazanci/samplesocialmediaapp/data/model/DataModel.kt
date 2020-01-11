@@ -59,17 +59,7 @@ object DataModel {
         var userImageBase64: String
     )
 
-    // FOLLOWED LİSTELEME VERİ MODELİ
-    // RESPONSE İÇİN
-    data class FollowedListResponse(
-        var userInfo: List<FollowedListModel>
-    )
 
-    data class FollowedListModel(
-        var _id: String,
-        var userFullName: String,
-        var userImageBase64: String
-    )
 
 
     // UNFOLLOW İÇİN
@@ -116,6 +106,52 @@ object DataModel {
 
     )
 
+    // FOLLOWED LİSTELEME VERİ MODELİ
+    // RESPONSE İÇİN
+    data class FollowedListResponse(
+        var userInfo: List<FollowedListModel>
+    )
+
+    data class FollowedListModel(
+        var _id: String,
+        var userFullName: String,
+        var userImageBase64: String
+    )
+
+
+    // USER SHARED CONTENT
+
+
+    data class userSharedContentResponse(
+        @SerializedName("content")
+        val content: List<contentDataModel>
+    )
+
+    data class contentDataModel(
+        @SerializedName("contentCheck")
+        val contentCheck: Boolean,
+        @SerializedName("contentLikedCount")
+        val contentLikedCount: Int,
+        @SerializedName("contentNotLikeCount")
+        val contentNotLikeCount: Int,
+        @SerializedName("contentText")
+        val contentText: String,
+        @SerializedName("_id")
+        var _id: String,
+        @SerializedName("sharingDate")
+        val sharingDate: Int,
+        @SerializedName("sharingUserId")
+        val sharingUserId: String,
+        @SerializedName("sharingUserLocation")
+        val sharingUserLocation: String,
+        @SerializedName("__v")
+        val v: Int
+    )
+
+
+
+
+
 
 }
 
@@ -161,3 +197,5 @@ data class Content(
     val totalDocs: Int,
     val totalPages: Int
 )
+
+

@@ -6,29 +6,47 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 
 import com.ardakazanci.samplesocialmediaapp.R
+import com.ardakazanci.samplesocialmediaapp.databinding.ProfileSharedFragmentBinding
 
 class ProfileSharedFragment : Fragment() {
+
+    private lateinit var viewModel: ProfileSharedViewModel
+    private lateinit var binding: ProfileSharedFragmentBinding
+
 
     companion object {
         fun newInstance() =
             ProfileSharedFragment()
     }
 
-    private lateinit var viewModel: ProfileSharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.profile_shared_fragment, container, false)
+
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.profile_shared_fragment, container, false)
+
+
+        viewModel = ViewModelProviders.of(this).get(ProfileSharedViewModel::class.java)
+
+        binding.lifecycleOwner = this
+
+
+
+
+        binding.viewmodel = viewModel
+
+
+
+
+        return binding.root
+
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ProfileSharedViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

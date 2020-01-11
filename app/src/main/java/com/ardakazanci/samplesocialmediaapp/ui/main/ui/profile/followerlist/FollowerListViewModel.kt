@@ -61,12 +61,10 @@ class FollowerListViewModel(private var app: Application) : AndroidViewModel(app
             try {
 
                 if (a == null) {
-
                     _followerListIsEmpty.postValue(true)
                 } else {
 
                     a.let {
-
                         followerListInfo.postValue(a)
                         _followerListIsEmpty.postValue(false)
 

@@ -120,14 +120,12 @@ object DataModel {
 
 
     // USER SHARED CONTENT
-
-
-    data class userSharedContentResponse(
+    data class UserSharedContentResponse(
         @SerializedName("content")
-        val content: List<contentDataModel>
+        val content: List<ContentDataModel>
     )
 
-    data class contentDataModel(
+    data class ContentDataModel(
         @SerializedName("contentCheck")
         val contentCheck: Boolean,
         @SerializedName("contentLikedCount")

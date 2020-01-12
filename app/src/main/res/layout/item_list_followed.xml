@@ -8,7 +8,6 @@
         <variable
             name="clicklistener"
             type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.adapter.FollowedListClickListener" />
-
         <variable
             name="followed"
             type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.FollowedListModel" />

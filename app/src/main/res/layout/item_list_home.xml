@@ -6,6 +6,14 @@
     <data>
 
         <variable
+            name="like"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.Like" />
+
+        <variable
+            name="dislike"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.Dislike" />
+
+        <variable
             name="clickListener"
             type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener" />
 
@@ -106,7 +114,7 @@
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true"
-                    android:onClick="@{() -> clickListener.onClick(docModel)}"
+                    android:onClick="@{() -> clickListener.onClick(docModel,1)}"
                     android:src="@drawable/ic_like" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -128,6 +136,7 @@
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true"
+                    android:onClick="@{() -> clickListener.onClick(docModel,-1)}"
                     android:src="@drawable/ic_dislike" />
 
                 <androidx.appcompat.widget.AppCompatTextView

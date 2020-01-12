@@ -49,9 +49,15 @@ class HomeFragment : Fragment() {
 
         binding.viewmodel = homeViewModel
 
-        val adapter = ContentAdapter(HomeLikeClickListener { hit ->
+        val adapter = ContentAdapter(HomeLikeClickListener { hit, value ->
 
-            Toast.makeText(context, "${hit}", Toast.LENGTH_LONG).show()
+            if (value == 1) {
+                Toast.makeText(context, "${hit} ve like tıklandı.", Toast.LENGTH_LONG).show()
+            } else if (value == -1) {
+                Toast.makeText(context, "${hit} ve Dislike tıklandı.", Toast.LENGTH_LONG).show()
+            }
+
+
 
 
         })

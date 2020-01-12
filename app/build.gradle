@@ -18,6 +18,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
+        multiDexEnabled = true
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,10 +46,14 @@ android {
         exclude 'META-INF/*.version'
         exclude 'META-INF/proguard/*.pro'
     }
+
+
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:multidex:1.0.3'
 
 
     // Support Library

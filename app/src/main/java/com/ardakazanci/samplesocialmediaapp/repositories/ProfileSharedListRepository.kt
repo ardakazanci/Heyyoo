@@ -9,7 +9,7 @@ class ProfileSharedListRepository(private val api: IApiInterface) : BaseReposito
 
     suspend fun getUserSharedContent(
         userid: String
-    ): List<DataModel.contentDataModel>? {
+    ): List<DataModel.ContentDataModel>? {
         return safeApiCall(
             call = {
                 api.fetchUserSharedContent(userid).await()

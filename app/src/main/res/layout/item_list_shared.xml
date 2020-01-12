@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="contentDataModel"
+            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.ContentDataModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -29,6 +32,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/monserat_regular"
                 android:maxLines="4"
+                android:text="@{contentDataModel.contentText}"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,7 @@
                     android:layout_weight="3"
                     android:fontFamily="@font/monserrat_medium"
                     android:gravity="center_vertical"
+                    android:text="@{String.valueOf(contentDataModel.sharingDate)}"
                     android:textSize="14sp"
                     android:textStyle="italic"
                     tools:text="@tools:sample/date/ddmmyy" />
@@ -69,6 +74,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/color_sign_button"
                     android:clickable="false"
+                    android:text="@{contentDataModel.sharingUserLocation}"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     tools:text="@tools:sample/last_names" />

@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
@@ -25,6 +27,9 @@ class ProfileSharedViewModel(private var app: Application) : AndroidViewModel(ap
     val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
     val userId: String? = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
 
+    private val _userSharedContents = MutableLiveData<List<DataModel.ContentDataModel>>()
+    val userSharedContents: LiveData<List<DataModel.ContentDataModel>>
+        get() = _userSharedContents
 
     private val userSharedContent: ProfileSharedListRepository =
         ProfileSharedListRepository(ApiService.mainApi)
@@ -54,8 +59,10 @@ class ProfileSharedViewModel(private var app: Application) : AndroidViewModel(ap
                 try {
 
                     a?.let {
-                        Log.e(LOG_TAG, "repository dönüşü alındı ")
-
+                        it.forEach {
+                            Log.e("VMDeğer", it.contentText)
+                        }
+                        _userSharedContents.postValue(it)
                     }
 
 

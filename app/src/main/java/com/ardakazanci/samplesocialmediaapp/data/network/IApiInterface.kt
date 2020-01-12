@@ -68,6 +68,6 @@ interface IApiInterface {
     @GET("/contentoperation/userShared/{userid}")
     fun fetchUserSharedContent(
         @Path("userid") userid: String
-    ): Deferred<Response<DataModel.userSharedContentResponse>>
+    ): Deferred<Response<DataModel.UserSharedContentResponse>>
 }
 

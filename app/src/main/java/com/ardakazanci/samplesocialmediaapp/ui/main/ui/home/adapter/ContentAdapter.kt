@@ -52,8 +52,8 @@ class ContentAdapter(val clickListener: HomeLikeClickListener) :
     }
 }
 
-class HomeLikeClickListener(val clickListener: (doc: String, value: Int) -> Unit) {
+class HomeLikeClickListener(val clickListener: (doc: Doc, value: Int) -> Unit) {
     fun onClick(doc: Doc, value: Int) {
-        clickListener(doc._id, value) // İlgili Doc a ait id.
+        clickListener(doc, value) // İlgili Doc a ait id.
     }
 }

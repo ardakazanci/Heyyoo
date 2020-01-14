@@ -17,6 +17,7 @@ import com.ardakazanci.samplesocialmediaapp.databinding.FragmentHomeBinding
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddViewModel
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.ContentAdapter
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener
+import com.ardakazanci.samplesocialmediaapp.utils.toast
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.ui.SystemImagePicker
 
@@ -52,15 +53,20 @@ class HomeFragment : Fragment() {
         val adapter = ContentAdapter(HomeLikeClickListener { hit, value ->
 
             if (value == 1) {
-                Toast.makeText(context, "${hit} ve like tıklandı.", Toast.LENGTH_LONG).show()
+
+                homeViewModel.likeOperation(hit._id, hit.contentLikedCount)
+
+
             } else if (value == -1) {
-                Toast.makeText(context, "${hit} ve Dislike tıklandı.", Toast.LENGTH_LONG).show()
+                homeViewModel.dislikeOperation(hit._id)
+
             }
 
 
-
-
         })
+
+
+
 
 
         homeViewModel.getPosts().observe(this, Observer {

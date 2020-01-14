@@ -69,5 +69,16 @@ interface IApiInterface {
     fun fetchUserSharedContent(
         @Path("userid") userid: String
     ): Deferred<Response<DataModel.UserSharedContentResponse>>
+
+
+    @PUT("/contentoperation/like/{contentid}")
+    fun requestLike(
+        @Path("contentid") contentid: String
+    ): Deferred<Response<DataModel.LikeResponse>>
+
+    @PUT("/contentoperation/dislike/{contentid}")
+    fun requestDislike(
+        @Path("contentid") contentid: String
+    ): Deferred<Response<DataModel.DislikeResponse>>
 }
 

@@ -4,15 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="like"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.Like" />
-
-        <variable
-            name="dislike"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.Dislike" />
-
         <variable
             name="clickListener"
             type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener" />
@@ -115,7 +106,8 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="@{() -> clickListener.onClick(docModel,1)}"
-                    android:src="@drawable/ic_like" />
+                    android:src="@drawable/ic_like"
+                    android:visibility="invisible" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_content_like_count"
@@ -123,9 +115,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:text="@{String.valueOf(docModel.contentLikedCount)}"
                     android:fontFamily="@font/monserat_regular"
+                    android:text="@{String.valueOf(docModel.contentLikedCount)}"
                     android:textSize="12sp"
+                    android:visibility="invisible"
                     tools:text="0" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -137,16 +130,18 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="@{() -> clickListener.onClick(docModel,-1)}"
-                    android:src="@drawable/ic_dislike" />
+                    android:src="@drawable/ic_dislike"
+                    android:visibility="invisible" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_content_dislike_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@{String.valueOf(docModel.contentNotLikeCount)}"
                     android:fontFamily="@font/monserat_regular"
+                    android:text="@{String.valueOf(docModel.contentNotLikeCount)}"
                     android:textSize="12sp"
+                    android:visibility="invisible"
                     tools:text="0" />
 
 

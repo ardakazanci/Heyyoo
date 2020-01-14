@@ -1,5 +1,6 @@
 package com.ardakazanci.samplesocialmediaapp.data.model
 
+import androidx.lifecycle.LiveData
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -60,8 +61,6 @@ object DataModel {
     )
 
 
-
-
     // UNFOLLOW İÇİN
     data class UnFollowRequestModel(
         val otheruserid: String
@@ -119,6 +118,32 @@ object DataModel {
     )
 
 
+    // LIKE İŞLEMİ İÇİN MODEL
+
+    data class LikeResponse(
+        @SerializedName("status")
+        val status: Boolean
+    )
+
+    data class LikeRequest(
+        @SerializedName("contentid")
+        val contentid: String
+    )
+
+
+    // DISLIKE İŞLEMİ İÇİN MODEL
+
+    data class DislikeResponse(
+        @SerializedName("status")
+        val status: Boolean
+    )
+
+    data class DislikeRequest(
+        @SerializedName("contentid")
+        val contentid: String
+    )
+
+
     // USER SHARED CONTENT
     data class UserSharedContentResponse(
         @SerializedName("content")
@@ -146,9 +171,10 @@ object DataModel {
         val v: Int
     )
 
-
-
-
+    data class MessageValue(
+        val nickname: String,
+        val message: String
+    )
 
 
 }

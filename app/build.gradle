@@ -46,9 +46,8 @@ android {
         exclude 'META-INF/*.kotlin_module'
         exclude 'META-INF/*.version'
         exclude 'META-INF/proguard/*.pro'
-        pickFirst  'META-INF/*'
+        pickFirst 'META-INF/*'
     }
-
 
 
 }
@@ -86,6 +85,9 @@ dependencies {
 
     // Room Library
     implementation "androidx.room:room-runtime:$versions.room"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt "androidx.room:room-compiler:$versions.room"
 
     // ViewModel - Lifecycle
@@ -99,7 +101,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$versions.navigation"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
-
 
 
     // Glide Library
@@ -152,13 +153,6 @@ dependencies {
     implementation('com.github.nkzawa:socket.io-client:0.5.0') {
         exclude group: 'org.json', module: 'json'
     }
-
-
-
-
-
-
-
 
 
 }

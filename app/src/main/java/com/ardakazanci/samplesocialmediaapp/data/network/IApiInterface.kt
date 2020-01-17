@@ -80,5 +80,20 @@ interface IApiInterface {
     fun requestDislike(
         @Path("contentid") contentid: String
     ): Deferred<Response<DataModel.DislikeResponse>>
+
+
+    // Mesaj gönderme arayüzü.
+    @POST("/messageoperation/send")
+    fun requestMessageSend(
+        @Body bodyData: DataModel.MessageSendRequest
+    ): Deferred<Response<DataModel.MessageSendResponse>>
+
+
+    @POST("/messageoperation/list")
+    fun requestMessageGetList(
+        @Body bodyData: DataModel.MessageGetRequestContainer
+    ): Deferred<Response<DataModel.MessageGetResponse>>
+
 }
+
 

@@ -37,8 +37,12 @@ class MessageFollowedListViewModel(private var app: Application) : AndroidViewMo
             Constants.PREF_USER_TOKEN
         )
 
-    val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
-    val userId: String? = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
+    // val userToken: String? = preferences.getString(Constants.PREF_USER_TOKEN_VALUE, null)
+
+
+    private val _currentUserId = MutableLiveData<String>()
+    val currentUserId: LiveData<String>
+        get() = _currentUserId
 
     // <<< REPOSITORY VE COROUTINES ISLEMLERI
     private val followedListRepository: FollowedListRepository =
@@ -51,9 +55,13 @@ class MessageFollowedListViewModel(private var app: Application) : AndroidViewMo
 
 
     init {
+
+        _currentUserId.value = preferences.getString(Constants.PREF_USER_ID_VALUE, null)
+
+
         Log.i(LOG_TAG, "OnCreated")
         scope.launch {
-            val a = followedListRepository.getFollowedListModel(userId!!)
+            val a = followedListRepository.getFollowedListModel(_currentUserId.value!!)
             try {
                 if (a == null) {
                     Log.e(LOG_TAG, "Takip Edilen boş geldi.")

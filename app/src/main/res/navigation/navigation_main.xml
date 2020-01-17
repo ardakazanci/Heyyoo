@@ -107,5 +107,25 @@
         android:id="@+id/messageFollowedList"
         android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessageFollowedList"
         android:label="message_followed_list_fragment"
-        tools:layout="@layout/message_followed_list_fragment" />
+        tools:layout="@layout/message_followed_list_fragment">
+        <action
+            android:id="@+id/action_messageFollowedList_to_messagesSendFragment"
+            app:destination="@id/messagesSendFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesSendFragment"
+        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessagesSendFragment"
+        android:label="messages_send_fragment"
+        tools:layout="@layout/messages_send_fragment">
+        <argument
+            android:name="current_user_id"
+            app:argType="string" />
+        <argument
+            android:name="other_user_id"
+            app:argType="string" />
+    </fragment>
 </navigation>

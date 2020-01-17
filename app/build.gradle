@@ -150,9 +150,11 @@ dependencies {
     // Network Connection
     implementation "com.github.pwittchen:reactivenetwork-rx2:$versions.reactive_network"
 
-    implementation('com.github.nkzawa:socket.io-client:0.5.0') {
-        exclude group: 'org.json', module: 'json'
-    }
+    // Lottie Version
+
+    implementation "com.airbnb.android:lottie:3.3.0"
+
+
 
 
 }

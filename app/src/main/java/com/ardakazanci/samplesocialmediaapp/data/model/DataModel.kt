@@ -171,9 +171,62 @@ object DataModel {
         val v: Int
     )
 
-    data class MessageValue(
-        val nickname: String,
-        val message: String
+    // Mesage Gönderme Modelleri
+    data class MessageSendRequest(
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("senderId")
+        val senderId: String,
+        @SerializedName("receiverId")
+        val receiverId: String,
+        @SerializedName("date")
+        val date: Long
+    )
+
+    data class MessageSendResponse(
+        @SerializedName("success")
+        val success: Boolean,
+        @SerializedName("error")
+        val error: Boolean
+    )
+
+
+    // Mesaj Listeleme Modelleri
+
+
+    data class MessageGetRequestContainer(
+        val senderId: String,
+        val reciverId: String
+    )
+
+    data class MessageGetResponse(
+        val message: String,
+        val success: Boolean,
+        val content: List<Message>,
+        @SerializedName("userInfo")
+        val userInfo: List<MessageGetUserInfo>
+
+    )
+
+    data class MessageGetUserInfo(
+        val userFullName: String,
+        val userImageBase64: String
+    )
+
+
+    data class Message(
+        @SerializedName("messageSenderCode")
+        val messageSenderCode: Int,
+        @SerializedName("_id")
+        val _id: String,
+        @SerializedName("senderId")
+        val senderId: String,
+        @SerializedName("reciverId")
+        val reciverId: String,
+        @SerializedName("messageContent")
+        val messageContent: String,
+        @SerializedName("messageDate")
+        val messageDate: Long
     )
 
 

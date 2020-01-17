@@ -46,7 +46,20 @@ class MessageFollowedList : Fragment() {
 
         val adapter = FollowedListAdapter(FollowedListClickListener { followedItemId ->
 
-            requireActivity().applicationContext.toast("İlgili ID Değeri : " + followedItemId)
+            // requireActivity().applicationContext.toast("İlgili ID Değeri : " + followedItemId)
+
+            view?.let { view: View ->
+                viewModel.currentUserId.value!!.let { currentUserId ->
+                    view.findNavController()
+                        .navigate(
+                            MessageFollowedListDirections.actionMessageFollowedListToMessagesSendFragment(
+                                followedItemId,
+                                currentUserId
+                            )
+                        )
+                    viewModel.cancelCoroutines()
+                }
+            }
 
         })
 

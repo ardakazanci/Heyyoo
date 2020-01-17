@@ -19,6 +19,7 @@ import es.dmoral.toasty.Toasty
 import java.io.ByteArrayOutputStream
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import com.ardakazanci.samplesocialmediaapp.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -97,6 +98,11 @@ fun unixToDate(timeStamp: Int): String? {
     val sdf = SimpleDateFormat("yyyy-MM-dd")
     return sdf.format(time)
 
+}
+
+
+fun Context.colorList(id: Int): ColorStateList {
+    return ColorStateList.valueOf(ContextCompat.getColor(this, id))
 }
 
 

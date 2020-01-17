@@ -52,9 +52,12 @@ class FollowedListViewModel(private val app: Application) : AndroidViewModel(app
 
 
     init {
+
+
         Log.i(LOG_TAG, "OnCreated")
         scope.launch {
             val a = followedListRepository.getFollowedListModel(userId!!)
+
             try {
                 if (a == null) {
                     Log.e(LOG_TAG, "Takip Edilen boş geldi.")

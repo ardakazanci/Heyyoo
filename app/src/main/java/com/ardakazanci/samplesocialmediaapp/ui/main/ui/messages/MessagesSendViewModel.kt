@@ -57,12 +57,16 @@ class MessagesSendViewModel(private val app: Application) : AndroidViewModel(app
             scope.launch {
 
                 val b = messageListRepository.getMessageListResponse(currentUserId, otherUserId)
+                try {
+                    b!!.let {
 
-                b!!.let {
+                        messageListInfo.postValue(it)
 
-                    messageListInfo.postValue(it)
-
+                    }
+                } catch (e: Exception) {
+                    Log.e(LOG_TAG, "Boş mesaj geldi")
                 }
+
 
 
             }

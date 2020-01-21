@@ -66,9 +66,6 @@ class HomeFragment : Fragment() {
         })
 
 
-
-
-
         homeViewModel.getPosts().observe(this, Observer {
             adapter.submitList(it)
         })

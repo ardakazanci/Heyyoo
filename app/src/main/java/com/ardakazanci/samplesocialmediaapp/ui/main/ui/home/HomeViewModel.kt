@@ -41,7 +41,6 @@ class HomeViewModel(private val app: Application) : AndroidViewModel(app) {
 
     fun likeOperation(contentid: String, likecount: Int) {
 
-        Log.e("HomeVM", "Like Count " + likecount)
 
         scope.launch {
 

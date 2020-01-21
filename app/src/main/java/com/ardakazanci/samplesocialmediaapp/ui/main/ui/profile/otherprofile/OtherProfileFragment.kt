@@ -38,7 +38,7 @@ class OtherProfileFragment : Fragment() {
 
         arguments!!.let { arguments ->
             val args = OtherProfileFragmentArgs.fromBundle(arguments)
-            Log.e("USERID", args.userid)
+
             viewModel._otherUserId.value = args.userid
 
         }

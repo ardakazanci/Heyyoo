@@ -49,7 +49,7 @@ class SearchFragment : Fragment() {
 
         val adapter = SearchResultAdapter(SearchResultClickListener { hit ->
 
-            Toast.makeText(context, "${hit}", Toast.LENGTH_LONG).show()
+
             view!!.let { view: View ->
 
                 view.findNavController().navigate(

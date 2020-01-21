@@ -79,7 +79,7 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
                 _otherUserId.value!!,
                 "Bearer " + userToken!!
             )
-            Log.e("User Info", a!!.userFullName)
+
 
 
 

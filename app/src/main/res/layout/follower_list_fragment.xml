@@ -38,8 +38,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 app:srcCompat="@drawable/ic_empty_follower_followed" />
 
@@ -51,7 +51,7 @@
                 android:fontFamily="@font/monserrat_medium"
                 android:text="Henüz kimse takip etmiyor."
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>

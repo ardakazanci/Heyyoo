@@ -8,42 +8,55 @@
         <variable
             name="clicklistener"
             type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.adapter.FollowedListClickListener" />
+
         <variable
             name="followed"
             type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.FollowedListModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="?android:attr/selectableItemBackground"
-        android:onClick="@{() -> clicklistener.onClick(followed)}"
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="4dp"
+        android:elevation="22dp"
+        android:onClick="@{() -> clicklistener.onClick(followed)}"
+        app:cardCornerRadius="8dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/item_profile_image"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="8dp"
-            app:imageUrlNoCircle="@{followed.userImageBase64}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/arda" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_profile_name"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/monserrat_semibold"
-            android:maxLines="1"
-            android:text="@{followed.userFullName}"
-            app:layout_constraintBottom_toBottomOf="@+id/item_profile_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/item_profile_image"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Sample User" />
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_profile_image"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                app:imageUrlNoCircle="@{followed.userImageBase64}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/arda" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_profile_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/monserrat_semibold"
+                android:maxLines="1"
+                android:text="@{followed.userFullName}"
+                app:layout_constraintBottom_toBottomOf="@+id/item_profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_profile_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sample User" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

@@ -53,8 +53,9 @@ class MessageFollowedList : Fragment() {
                     view.findNavController()
                         .navigate(
                             MessageFollowedListDirections.actionMessageFollowedListToMessagesSendFragment(
-                                followedItemId,
-                                currentUserId
+                                currentUserId,
+                                followedItemId
+
                             )
                         )
                     viewModel.cancelCoroutines()

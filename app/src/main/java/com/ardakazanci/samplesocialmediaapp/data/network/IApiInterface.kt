@@ -94,6 +94,13 @@ interface IApiInterface {
         @Body bodyData: DataModel.MessageGetRequestContainer
     ): Deferred<Response<DataModel.MessageGetResponse>>
 
+
+    // http://localhost:3000/messageoperation/conversationlist/5e26bc3645cdeb0efb0629d2
+    @GET("/messageoperation/conversationlist/{currentId}")
+    fun requestConversationList(
+        @Path("currentId") currentId: String
+    ): Deferred<Response<DataModel.MessageConversationResponseModel>>
+
 }
 
 

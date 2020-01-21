@@ -9,8 +9,10 @@ import android.view.View
 
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.ardakazanci.samplesocialmediaapp.R
 import com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddFragment
@@ -50,13 +52,22 @@ class SocialMainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+        navView.setOnNavigationItemSelectedListener { item ->
+
+            onNavDestinationSelected(
+                item,
+                Navigation.findNavController(this, R.id.nav_host_fragment)
+            )
+
+        }
+
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Log.e("SocialMain", "Destroy oldu")
     }
-
 
     override fun onResume() {
         super.onResume()

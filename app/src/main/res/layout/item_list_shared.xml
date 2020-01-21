@@ -56,12 +56,12 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_content_date"
+                    datevisible="@{contentDataModel.sharingDate}"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:fontFamily="@font/monserrat_medium"
                     android:gravity="center_vertical"
-                    android:text="@{String.valueOf(contentDataModel.sharingDate)}"
                     android:textSize="14sp"
                     android:textStyle="italic"
                     tools:text="@tools:sample/date/ddmmyy" />

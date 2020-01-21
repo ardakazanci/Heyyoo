@@ -112,7 +112,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/monserat_regular"
                     android:gravity="right|center_vertical"
-                    android:text="Fotoğraf ve Konumunuzu paylaşabilirsiniz."
+                    android:text="Konumunuzu paylaşmak için butona tıklayınız."
                     android:textSize="10sp" />
 
             </LinearLayout>

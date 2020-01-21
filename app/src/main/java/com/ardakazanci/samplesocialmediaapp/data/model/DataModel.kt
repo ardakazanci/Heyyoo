@@ -117,6 +117,16 @@ object DataModel {
         var userImageBase64: String
     )
 
+    data class FollowedResponse(
+        val success: Boolean,
+        val followedInfo: List<FollowedInfoModel>?
+    )
+
+    data class FollowedInfoModel(
+        val _id: String,
+        val followed: String
+    )
+
 
     // LIKE İŞLEMİ İÇİN MODEL
 
@@ -210,6 +220,34 @@ object DataModel {
 
     data class MessageGetUserInfo(
         val userFullName: String,
+        val userImageBase64: String
+    )
+
+    // Kimlerle Mesajlaşılmış yada Kimden Mesaj gelmiş modelleri
+
+    data class MessageConversationRequestModel(
+        val currentId: String
+    )
+
+
+    data class MessageConversationResponseModel(
+        @SerializedName("count")
+        val count: Int,
+        @SerializedName("message")
+        val message: String,
+        @SerializedName("success")
+        val success: Boolean,
+        @SerializedName("userInfo")
+        val userInfo: List<MessageConversationUserModel>?
+    )
+
+
+    data class MessageConversationUserModel(
+        @SerializedName("_id")
+        val _id: String,
+        @SerializedName("userFullName")
+        val userFullName: String,
+        @SerializedName("userImageBase64")
         val userImageBase64: String
     )
 

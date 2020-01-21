@@ -59,8 +59,10 @@ class ContentAddFragment : Fragment() {
 
             if (value) {
                 binding.pbLoadingContentAdd.visibility = View.VISIBLE
+                binding.btnContentShare.visibility = View.GONE
             } else {
                 binding.pbLoadingContentAdd.visibility = View.GONE
+                binding.btnContentShare.visibility = View.VISIBLE
             }
 
         })

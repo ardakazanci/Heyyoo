@@ -94,7 +94,7 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
         } else if (userLocationValue.isNullOrEmpty()) {
             mContext.toast("Lütfen konum bilginizi giriniz.")
         } else {
-            mContext.toast("İçerik paylaş butonuna tıklandı - İçerik metni :  ${bindContentText.value} ve ${bindContentLocation.value}")
+            //mContext.toast("İçerik paylaş butonuna tıklandı - İçerik metni :  ${bindContentText.value} ve ${bindContentLocation.value}")
 
             setUserShareContent(userContentText, userLocationValue)
         }

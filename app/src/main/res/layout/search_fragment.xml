@@ -73,8 +73,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 app:srcCompat="@drawable/ic_search_person_add" />
 
@@ -86,7 +86,7 @@
                 android:fontFamily="@font/monserrat_medium"
                 android:text="Arama yapmak için kullanıcı adını giriniz."
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>

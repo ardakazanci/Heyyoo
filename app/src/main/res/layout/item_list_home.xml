@@ -64,7 +64,7 @@
                     android:fontFamily="@font/monserrat_medium"
                     android:gravity="center_vertical"
                     android:textSize="14sp"
-                    android:text="@{String.valueOf(docModel.sharingDate)}"
+                    datevisible="@{docModel.sharingDate}"
                     android:textStyle="italic"
                     tools:text="@tools:sample/date/ddmmyy" />
 

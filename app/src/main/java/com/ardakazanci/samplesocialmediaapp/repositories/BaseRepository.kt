@@ -3,6 +3,8 @@ package com.ardakazanci.samplesocialmediaapp.repositories
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiOutput
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import java.io.IOException
 
@@ -10,18 +12,24 @@ import java.io.IOException
 open class BaseRepository {
 
     suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>, error: String): T? {
-        val result = apiOutput(call, error)
-        var output: T? = null
-        when (result) {
-            is ApiOutput.Success -> {
-                output = result.output
-            }
-            is ApiOutput.Error -> {
-                Log.e("Hata 1 :", "Bu $error ve bu ${result.exception}")
 
+        return withContext(Dispatchers.IO) {
+
+            val result = apiOutput(call, error)
+            var output: T? = null
+            when (result) {
+                is ApiOutput.Success -> {
+                    output = result.output
+                }
+                is ApiOutput.Error -> {
+                    Log.e("Hata 1 :", "Bu $error ve bu ${result.exception}")
+
+                }
             }
+            output
         }
-        return output
+
+
     }
 
     private suspend fun <T : Any> apiOutput(
@@ -29,10 +37,15 @@ open class BaseRepository {
         error: String
     ): ApiOutput<T> {
         val response = call.invoke()
-        return if (response.isSuccessful)
-            ApiOutput.Success(response.body()!!)
-        else
-            ApiOutput.Error(IOException("Hata 2 :   $error"))
+        return withContext(Dispatchers.IO) {
+            if (response.isSuccessful)
+                ApiOutput.Success(response.body()!!)
+            else
+                ApiOutput.Error(IOException("Hata 2 :   $error"))
+
+        }
+
+
     }
 
 }

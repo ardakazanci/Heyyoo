@@ -51,7 +51,7 @@ fun Fragment.openGalleryForPickingImage(code: Int) {
 
 fun getEncoded64ImageStringFromBitmap(bitmap: Bitmap?): String {
     val stream: ByteArrayOutputStream = ByteArrayOutputStream();
-    bitmap?.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+    bitmap?.compress(Bitmap.CompressFormat.JPEG, 10, stream);
     val byteFormat: ByteArray = stream.toByteArray()
     val imgString: String = Base64.encodeToString(byteFormat, Base64.NO_WRAP);
     return imgString

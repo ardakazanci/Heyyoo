@@ -25,7 +25,7 @@ object ImageAdapterBind {
         Glide.with(imageView.context)
             .load(url)
             .apply(RequestOptions.circleCropTransform())
-            .placeholder(R.drawable.sign_in_top_logo)
+            .placeholder(R.drawable.ic_app_global)
             .into(imageView)
     }
 

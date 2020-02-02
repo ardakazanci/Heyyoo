@@ -4,10 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.ardakazanci.samplesocialmediaapp.data.model.DataModel
 import com.ardakazanci.samplesocialmediaapp.data.network.ApiService
 import com.ardakazanci.samplesocialmediaapp.data.network.IApiInterface
@@ -48,7 +45,6 @@ class MessagesViewModel(private val app: Application) : AndroidViewModel(app) {
     private val scope = CoroutineScope(coroutineContext)
 
     init {
-
         getConversationList()
     }
 
@@ -59,7 +55,7 @@ class MessagesViewModel(private val app: Application) : AndroidViewModel(app) {
 
     fun getConversationList() {
 
-        scope.launch {
+        viewModelScope.launch {
 
             if (currentId != null) {
 

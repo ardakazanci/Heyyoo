@@ -1,19 +1,9 @@
 package com.ardakazanci.samplesocialmediaapp.ui.main.ui.content
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.app.Activity.RESULT_OK
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer

@@ -17,6 +17,7 @@ import com.securepreferences.SecurePreferences
 import com.titanium.locgetter.main.LocationGetterBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.coroutines.*
+import java.io.IOException
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
@@ -152,21 +153,18 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe { location ->
                         // mContext.toast("Lokasyon seçim fonksiyonu : ${location.toString()}")
+
                         val lat = location.latitude
                         val lng = location.longitude
-                        val adress = geocoder.getFromLocation(lat, lng, 1)
-                        val address_1 = adress[0].locality.toString() // Mauntaion View
-                        val address_2 = adress[0].countryName.toString()
+                        val adresses = getCityNameByCoordinates(lat, lng)
 
-                        if (!address_1.isNullOrEmpty() && !!address_2.isNullOrEmpty()) {
-
-                            app.toast("Konum bilgisi alınırken problem yaşandı.")
-
-                        } else {
-
-                            bindContentLocation.value = address_1 + " " + address_2
+                        if (adresses != null) {
                             app.toast("Lokasyon değeri başarıyla alındı")
+                            bindContentLocation.value = adresses
+                        } else {
+                            app.toast("Lokasyon değeri alınamadı. Tekrar deneyiniz.")
                         }
+
 
                     }
 
@@ -176,6 +174,30 @@ class ContentAddViewModel(private val app: Application) : AndroidViewModel(app) 
 
         }
 
+    }
+
+
+    @Throws(IOException::class)
+    private fun getCityNameByCoordinates(lat: Double, lng: Double): String? {
+
+        val adress = geocoder.getFromLocation(lat, lng, 1)
+        if (adress != null && adress.size > 0) {
+
+            adress.forEach { adresses ->
+                if (adresses.locality != null && adresses.locality.length > 0) {
+
+                    return adresses.locality
+
+                } else {
+
+                    return adresses.countryName
+
+                }
+            }
+
+        }
+
+        return null
     }
 
 

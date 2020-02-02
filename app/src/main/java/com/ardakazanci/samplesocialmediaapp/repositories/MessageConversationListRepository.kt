@@ -13,8 +13,6 @@ class MessageConversationListRepository(private val apiInterface: IApiInterface)
     ): List<DataModel.MessageConversationUserModel>? {
 
         return withContext(Dispatchers.IO) {
-
-
             safeApiCall(
                 call = {
                     apiInterface.requestConversationList(

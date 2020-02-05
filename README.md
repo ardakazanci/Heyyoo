@@ -12,8 +12,8 @@ The communication between the different layers follow the above diagram using th
 
 ## Patterns
 
-Repository Pattern - The Repository Pattern is one of the most popular patterns to create an enterprise level application. It restricts us to work directly with the data in the application and creates new layers for database operations, business logic, and the application's UI.
-Observer Pattern - The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+- Repository Pattern - The Repository Pattern is one of the most popular patterns to create an enterprise level application. It restricts us to work directly with the data in the application and creates new layers for database operations, business logic, and the application's UI.
+- Observer Pattern - The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
 
 
 ## Usage
@@ -42,7 +42,9 @@ Values ​​in Constants.kt file must be filled.
 - ...
 ## BackEnd
 
-NodeJs - Mongoose - MongoDb
+- NodeJs 
+- Mongoose
+- MongoDb
 
 ## Libraries
 

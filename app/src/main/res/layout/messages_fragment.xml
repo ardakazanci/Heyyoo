@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessagesViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.MessagesViewModel" />
     </data>
 
 

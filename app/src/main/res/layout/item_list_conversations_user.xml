@@ -7,11 +7,11 @@
 
         <variable
             name="clicklistener"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.adapter.MessagesClickListener" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.adapter.MessagesClickListener" />
 
         <variable
             name="conversationUserInfo"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.MessageConversationUserModel" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.DataModel.MessageConversationUserModel" />
     </data>
 
 

@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.onboarding.forgetpassword.ForgetPasswordFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.onboarding.forgetpassword.ForgetPasswordFragment"
         android:label="forget_password_fragment"
         tools:layout="@layout/forget_password_fragment" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.onboarding.signup.SignUpFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.onboarding.signup.SignUpFragment"
         android:label="sign_up_fragment"
         tools:layout="@layout/sign_up_fragment">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.onboarding.signin.SignInFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.onboarding.signin.SignInFragment"
         android:label="sign_in_fragment"
         tools:layout="@layout/sign_in_fragment">
         <action

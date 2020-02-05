@@ -7,7 +7,7 @@
 
         <variable
             name="searchViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.search.SearchViewModel" />
 
     </data>
 

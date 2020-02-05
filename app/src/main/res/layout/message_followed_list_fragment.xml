@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessageFollowedListViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.MessageFollowedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

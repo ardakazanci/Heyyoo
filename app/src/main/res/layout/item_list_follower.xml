@@ -7,11 +7,11 @@
 
         <variable
             name="clicklistener"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.adapter.FollowerListClickListener" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.followerlist.adapter.FollowerListClickListener" />
 
         <variable
             name="follower"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.FollowerListModel" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.DataModel.FollowerListModel" />
     </data>
 
     <androidx.cardview.widget.CardView

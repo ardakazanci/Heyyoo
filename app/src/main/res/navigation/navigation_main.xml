@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.HomeFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.DashboardFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
@@ -34,12 +34,12 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.notifications.NotificationsFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_messages"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessagesFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.MessagesFragment"
         android:label="@string/title_message"
         tools:layout="@layout/messages_fragment">
         <action
@@ -59,12 +59,12 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_content"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.content.ContentAddFragment"
         android:label="@string/title_content_share"
         tools:layout="@layout/content_add_fragment" />
     <fragment
         android:id="@+id/followerListFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.FollowerListFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.followerlist.FollowerListFragment"
         android:label="follower_list_fragment"
         tools:layout="@layout/follower_list_fragment">
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/followedListFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.FollowedListFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.followedlist.FollowedListFragment"
         android:label="followed_list_fragment"
         tools:layout="@layout/followed_list_fragment">
         <action
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/otherProfileFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.otherprofile.OtherProfileFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.otherprofile.OtherProfileFragment"
         android:label="otherprofile_fragment"
         tools:layout="@layout/otherprofile_fragment">
         <argument
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.search.SearchFragment"
         android:label="search_fragment"
         tools:layout="@layout/search_fragment">
         <action
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFollowedList"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessageFollowedList"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.MessageFollowedList"
         android:label="message_followed_list_fragment"
         tools:layout="@layout/message_followed_list_fragment">
         <action
@@ -125,7 +125,7 @@
     </fragment>
     <fragment
         android:id="@+id/messagesSendFragment"
-        android:name="com.ardakazanci.samplesocialmediaapp.ui.main.ui.messages.MessagesSendFragment"
+        android:name="com.ardakazanci.anlikmotivasyon.ui.main.ui.messages.MessagesSendFragment"
         android:label="messages_send_fragment"
         tools:layout="@layout/messages_send_fragment">
         <argument

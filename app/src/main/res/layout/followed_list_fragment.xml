@@ -6,7 +6,7 @@
     <data>
         <variable
             name="followedViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followedlist.FollowedListViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.followedlist.FollowedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

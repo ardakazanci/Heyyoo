@@ -7,7 +7,7 @@
 
         <variable
             name="signInViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.onboarding.signin.SignInViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.onboarding.signin.SignInViewModel" />
     </data>
 
     <ScrollView

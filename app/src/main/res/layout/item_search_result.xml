@@ -6,11 +6,11 @@
     <data>
         <variable
             name="clicklistener"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.search.SearchResultClickListener" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.search.SearchResultClickListener" />
 
         <variable
             name="user"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.AlgoliaUserResponseModel" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.DataModel.AlgoliaUserResponseModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.pager.shared.ProfileSharedViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.pager.shared.ProfileSharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

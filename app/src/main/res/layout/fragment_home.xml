@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.HomeViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

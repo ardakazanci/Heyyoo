@@ -7,7 +7,7 @@
 
         <variable
             name="dashboardViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.DashboardViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.DashboardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,7 +7,7 @@
 
         <variable
             name="messageModel"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.Message" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.DataModel.Message" />
     </data>
 
     <LinearLayout

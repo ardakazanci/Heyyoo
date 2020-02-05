@@ -6,11 +6,11 @@
     <data>
         <variable
             name="clickListener"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.home.adapter.HomeLikeClickListener" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.home.adapter.HomeLikeClickListener" />
 
         <variable
             name="docModel"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.Doc" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.Doc" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

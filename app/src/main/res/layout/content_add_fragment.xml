@@ -8,7 +8,7 @@
 
         <variable
             name="contentViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.content.ContentAddViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.content.ContentAddViewModel" />
 
 
     </data>

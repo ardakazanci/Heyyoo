@@ -7,7 +7,7 @@
 
         <variable
             name="contentDataModel"
-            type="com.ardakazanci.samplesocialmediaapp.data.model.DataModel.ContentDataModel" />
+            type="com.ardakazanci.anlikmotivasyon.data.model.DataModel.ContentDataModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

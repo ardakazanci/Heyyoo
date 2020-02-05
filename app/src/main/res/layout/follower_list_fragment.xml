@@ -7,7 +7,7 @@
 
         <variable
             name="followerListViewModel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.followerlist.FollowerListViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.followerlist.FollowerListViewModel" />
 
     </data>
 

@@ -7,7 +7,7 @@
 
         <variable
             name="otherprofileviewmodel"
-            type="com.ardakazanci.samplesocialmediaapp.ui.main.ui.profile.otherprofile.OtherProfileViewModel" />
+            type="com.ardakazanci.anlikmotivasyon.ui.main.ui.profile.otherprofile.OtherProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

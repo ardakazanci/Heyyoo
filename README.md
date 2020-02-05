@@ -2,6 +2,19 @@
 
 It is an exemplary social media application where users motivate each other.
 
+## Architecture components
+
+Ideally, ViewModels shouldn’t know anything about Android. This improves testability, leak safety and modularity. ViewModels have different scopes than activities or fragments. While a ViewModel is alive and running, an activity can be in any of its lifecycle states. Activities and fragments can be destroyed and created again while the ViewModel is unaware.
+
+Passing a reference of the View (activity or fragment) to the ViewModel is a serious risk. Lets assume the ViewModel requests data from the network and the data comes back some time later. At that moment, the View reference might be destroyed or might be an old activity that is no longer visible, generating a memory leak and, possibly, a crash.
+
+The communication between the different layers follow the above diagram using the reactive paradigm, observing changes on components without need of callbacks avoiding leaks and edge cases related with them.
+
+## Patterns
+
+Repository Pattern - The Repository Pattern is one of the most popular patterns to create an enterprise level application. It restricts us to work directly with the data in the application and creates new layers for database operations, business logic, and the application's UI.
+Observer Pattern - The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+
 
 ## Usage
 
@@ -33,12 +46,16 @@ NodeJs - Mongoose - MongoDb
 
 ## Libraries
 
-- Retrofit 
-- Coroutines
+- Retrofit : type-safe HTTP client.
+- Coroutines :  managing background threads with simplified code and reducing needs for callbacks.
 - Room Library
-- ViewModel - Lifecycle
+- Lifecycle : perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
+- ViewModel : designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations.
+- LiveData : lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
+- Data Binding - allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 - Navigation
-- Glide
+- Gson : makes it easy to parse JSON into Kotlin objects.
+- Glide : image loading library for Android.
 - CircleImageView
 - EasyValidation
 - Toasty
@@ -53,12 +70,14 @@ NodeJs - Mongoose - MongoDb
 - Lottie
 - ...
 
-## App UI 
+## Thank You
 
 Thank You Sanchit Sharma - [Dribble](https://dribbble.com/shots/6612479-Social-Katchup-F)
 
 Logo - [FlatIcon](https://www.flaticon.com/free-icon/love_1029183?term=Like&page=1&position=4)
 
+Thank Yoy @nuhkoca  for guiding projects and documentation brief descriptions.
+ 
 
 ## Images
 

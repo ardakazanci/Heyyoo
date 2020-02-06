@@ -5,7 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ardakazanci/sample-social-media-app-mvvm/badge)](https://www.codefactor.io/repository/github/ardakazanci/sample-social-media-app-mvvm)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
-
+<a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 
 # Content
 

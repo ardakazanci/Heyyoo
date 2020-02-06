@@ -87,12 +87,12 @@ class OtherProfileViewModel(private val app: Application) : AndroidViewModel(app
 
                 a!!.let {
 
-                    val userFullName = a.userFullName
+                    a.userFullName
                     val userSharedCount = a.userSharedCount
                     val userFollowedCount = a.userFollowedCount
                     val userFollowerCount = a.userFollowerCount
-                    val userEmail = a.userEmail
-                    val userImageBase64 = a.userImageBase64
+                    a.userEmail
+                    a.userImageBase64
 
                     if (userSharedCount == 0L && userFollowedCount == 0L && userFollowerCount == 0L) {
                         infoDataWith(

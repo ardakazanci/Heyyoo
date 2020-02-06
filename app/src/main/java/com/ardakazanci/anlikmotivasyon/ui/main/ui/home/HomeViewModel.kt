@@ -34,7 +34,7 @@ class HomeViewModel(private val app: Application) : AndroidViewModel(app) {
     // <<< COROUTINES SON >>>
 
 
-    fun likeOperation(contentid: String, likecount: Int) {
+    fun likeOperation(contentid: String) {
 
 
         scope.launch {

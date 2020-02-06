@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.ardakazanci.anlikmotivasyon.utils
 
 import android.content.Context

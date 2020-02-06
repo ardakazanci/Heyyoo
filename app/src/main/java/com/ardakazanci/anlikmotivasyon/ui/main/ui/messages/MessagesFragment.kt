@@ -78,7 +78,7 @@ class MessagesFragment : Fragment() {
 
         val adapter = MessagesAdapter(MessagesClickListener {
 
-            view!!.let { view: View ->
+            view.let { view: View ->
 
                 if (currentId != null) {
                     view.findNavController()

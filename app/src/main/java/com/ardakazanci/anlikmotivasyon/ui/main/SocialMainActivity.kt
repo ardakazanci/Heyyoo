@@ -36,7 +36,7 @@ class SocialMainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val appBarConfiguration = AppBarConfiguration(
+        /*val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
                 R.id.navigation_messages,
@@ -44,7 +44,7 @@ class SocialMainActivity : AppCompatActivity() {
                 R.id.navigation_search,
                 R.id.navigation_dashboard
             )
-        )
+        )*/
 
         navView.setupWithNavController(navController)
 

@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 
+@Suppress("DEPRECATION")
 abstract class ConnectionBroadcastReceiver : BroadcastReceiver() {
     companion object {
         @JvmStatic

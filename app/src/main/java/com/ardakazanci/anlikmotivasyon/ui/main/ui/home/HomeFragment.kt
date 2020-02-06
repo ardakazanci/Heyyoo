@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
 
             if (value == 1) {
 
-                homeViewModel.likeOperation(hit._id, hit.contentLikedCount)
+                homeViewModel.likeOperation(hit._id)
 
 
             } else if (value == -1) {

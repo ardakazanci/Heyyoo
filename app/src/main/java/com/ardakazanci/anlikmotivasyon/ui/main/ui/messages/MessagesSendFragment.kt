@@ -44,9 +44,9 @@ class MessagesSendFragment : Fragment() {
         binding.lifecycleOwner = this
         arguments!!.let {
             val args = MessagesSendFragmentArgs.fromBundle(it)
-            viewModel.otherUserId.postValue(args.currentUserİd)
-            viewModel.currentUserId.postValue(args.currentUserİd)
-            viewModel.getMessageList(args.currentUserİd, args.otherUserİd)
+            viewModel.otherUserId.postValue(args.otherUser)
+            viewModel.currentUserId.postValue(args.currentUser)
+            viewModel.getMessageList(args.currentUser, args.otherUser)
         }
 
         val adapter = MessageListAdapter()

@@ -44,7 +44,7 @@ class MessagesSendFragment : Fragment() {
         binding.lifecycleOwner = this
         arguments!!.let {
             val args = MessagesSendFragmentArgs.fromBundle(it)
-            viewModel.otherUserId.postValue(args.otherUserİd)
+            viewModel.otherUserId.postValue(args.currentUserİd)
             viewModel.currentUserId.postValue(args.currentUserİd)
             viewModel.getMessageList(args.currentUserİd, args.otherUserİd)
         }

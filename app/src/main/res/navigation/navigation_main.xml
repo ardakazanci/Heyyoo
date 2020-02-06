@@ -129,10 +129,10 @@
         android:label="messages_send_fragment"
         tools:layout="@layout/messages_send_fragment">
         <argument
-            android:name="currentuserid"
+            android:name="current_user_id"
             app:argType="string" />
         <argument
-            android:name="otheruserid"
+            android:name="other_user_id"
             app:argType="string" />
     </fragment>
 </navigation>

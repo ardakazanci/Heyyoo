@@ -12,9 +12,9 @@ class Constants {
         const val PREF_USER_TOKEN = "user_token_code.xml" // SharedPrefs FileName
 
 
-        const val ALGOLIA_APPLICATION_ID = "YVQEKFLLV5"
-        const val ALGOLIA_SEARCH_ONLY_API_KEY = "8f87d92b2c9a75379c60fe28e77c3b1e"
-        const val ALGOLIA_ADMIN_API_KEY = "f761ee657a0b595df432cdb06889747c"
+        const val ALGOLIA_APPLICATION_ID = ""
+        const val ALGOLIA_SEARCH_ONLY_API_KEY = ""
+        const val ALGOLIA_ADMIN_API_KEY = ""
         const val ALGOLIA_INDEX_NAME = "user-list"
 
 

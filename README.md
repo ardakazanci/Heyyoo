@@ -3,6 +3,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8da4dc07cf3f426caa9397804792277f)](https://www.codacy.com/manual/ardakazanci/Sample-Social-Media-App-MVVM?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ardakazanci/Sample-Social-Media-App-MVVM&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/a7cc6858-523a-41a0-b288-aabe6ef85431)](https://codebeat.co/projects/github-com-ardakazanci-sample-social-media-app-mvvm-master)
 [![CodeFactor](https://www.codefactor.io/repository/github/ardakazanci/sample-social-media-app-mvvm/badge)](https://www.codefactor.io/repository/github/ardakazanci/sample-social-media-app-mvvm)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
 
 # Content

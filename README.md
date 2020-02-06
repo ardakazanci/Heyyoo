@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8da4dc07cf3f426caa9397804792277f)](https://www.codacy.com/manual/ardakazanci/Sample-Social-Media-App-MVVM?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ardakazanci/Sample-Social-Media-App-MVVM&amp;utm_campaign=Badge_Grade)
+
 # Content
 
 It is an exemplary social media application where users motivate each other.
